@@ -1,0 +1,9 @@
+{
+  "Nav": { "home": "Início", "club": "O Clube", "courts": "Campos", "contact": "Contactos" },
+  "Hero": {
+    "title": "A Melhor Experiência de Padel nas Caldas",
+    "subtitle": "Campos premium, ambiente exclusivo e a comunidade mais vibrante da região.",
+    "cta": "Reservar Campo"
+  },
+  "Features": { "title": "O Nosso Clube", "f1": "Campos WPT", "f2": "Aulas", "f3": "Lounge Bar" }
+}

@@ -1,0 +1,9 @@
+{
+  "Nav": { "home": "Home", "club": "The Club", "courts": "Courts", "contact": "Contact" },
+  "Hero": {
+    "title": "The Ultimate Padel Experience in Caldas",
+    "subtitle": "Premium courts, exclusive atmosphere, and the most vibrant community in the region.",
+    "cta": "Book Court"
+  },
+  "Features": { "title": "Our Club", "f1": "WPT Courts", "f2": "Lessons", "f3": "Lounge Bar" }
+}

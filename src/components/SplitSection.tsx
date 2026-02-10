@@ -2,37 +2,47 @@ import Link from 'next/link';
 
 export default function SplitSection() {
     return (
-        <section className="grid md:grid-cols-2">
-            {/* Lado Esquerdo - Texto com fundo Navy */}
+        <section className="grid md:grid-cols-2" id="clube">
+            {/* Lado Esquerdo - Texto */}
             <div className="bg-brand-navy text-white p-12 md:p-24 flex flex-col justify-center relative overflow-hidden">
                 {/* Elemento decorativo */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-brand-terracotta/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
                 <span className="text-brand-terracotta font-bold tracking-widest uppercase mb-4 relative z-10">
-          Academia CPC
+          Sobre Nós
         </span>
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight relative z-10">
-                    Evolui o teu jogo<br />com os melhores.
+                    O primeiro clube das <br /> Caldas da Rainha.
                 </h2>
                 <p className="text-gray-400 leading-relaxed mb-8 text-lg relative z-10">
-                    A nossa academia conta com treinadores certificados prontos para elevar o teu nível,
-                    seja em aulas privadas, de grupo ou clínicas intensivas de fim de semana.
+                    Localizado na Zona Industrial, o Clube Padel Caldas oferece as melhores condições para a prática da modalidade.
+                    Com 5 campos indoor e 1 coberto de última geração com vidro panorâmico e relva WPT.
+                    A melhor experiência de jogo garantida.
                 </p>
 
+                <ul className="mb-8 space-y-3 text-gray-300 relative z-10">
+                    <li className="flex items-center gap-2">✓ Estacionamento Privativo</li>
+                    <li className="flex items-center gap-2">✓ Campos Premium</li>
+                    <li className="flex items-center gap-2">✓ Aulas para todos os níveis</li>
+                    <li className="flex items-center gap-2">✓ Organização de Torneios sociais, ligas e clínicas</li>
+                    <li className="flex items-center gap-2">✓ Comunidade Ativa</li>
+
+                </ul>
+
                 <Link
-                    href="#academia"
+                    href="#contactos"
                     className="w-fit border-b-2 border-brand-terracotta text-white pb-1 font-bold hover:text-brand-terracotta transition-colors relative z-10"
                 >
-                    CONHECER PLANOS
+                    VISITAR O CLUBE
                 </Link>
             </div>
 
-            {/* Lado Direito - Imagem */}
+            {/* Lado Direito - Imagem (Idealmente uma foto real dos campos azuis do CPC) */}
             <div className="relative min-h-[400px]">
                 <img
                     src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=2070&auto=format&fit=crop"
                     className="absolute inset-0 w-full h-full object-cover"
-                    alt="Treino Padel"
+                    alt="Interior do Clube Padel Caldas"
                 />
             </div>
         </section>

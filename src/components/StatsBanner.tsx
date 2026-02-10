@@ -4,28 +4,28 @@ export default function StatsBanner() {
             <div className="container mx-auto px-6">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
 
-                    {/* Stat 1 */}
+                    {/* Campos Reais */}
                     <div className="flex flex-col items-center">
                         <span className="text-4xl md:text-5xl font-black text-brand-terracotta mb-2">6</span>
-                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">Campos WPT</span>
+                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">Campos (5+1)</span>
                     </div>
 
-                    {/* Stat 2 */}
+                    {/* Comunidade */}
                     <div className="flex flex-col items-center">
-                        <span className="text-4xl md:text-5xl font-black text-brand-terracotta mb-2">5</span>
-                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">Treinadores</span>
+                        <span className="text-4xl md:text-5xl font-black text-brand-terracotta mb-2">M/F</span>
+                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">Balneários Premium</span>
                     </div>
 
-                    {/* Stat 3 */}
+                    {/* Aulas */}
                     <div className="flex flex-col items-center">
-                        <span className="text-4xl md:text-5xl font-black text-brand-terracotta mb-2">20+</span>
-                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">Torneios/Ano</span>
+                        <span className="text-4xl md:text-5xl font-black text-brand-terracotta mb-2">CPC</span>
+                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">Academia</span>
                     </div>
 
-                    {/* Stat 4 */}
+                    {/* Bar */}
                     <div className="flex flex-col items-center">
-                        <span className="text-4xl md:text-5xl font-black text-brand-terracotta mb-2">365</span>
-                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">Dias de Padel</span>
+                        <span className="text-4xl md:text-5xl font-black text-brand-terracotta mb-2">Bar</span>
+                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">Zona Social</span>
                     </div>
 
                 </div>

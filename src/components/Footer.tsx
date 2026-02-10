@@ -9,7 +9,7 @@ export default function Footer() {
                 <div>
                     <h3 className="text-2xl font-bold mb-6">CLUBE PADEL <span className="text-brand-terracotta">CALDAS</span></h3>
                     <p className="text-gray-400 leading-relaxed max-w-sm">
-                        O clube de referência na zona Oeste. Vem fazer parte da nossa comunidade.
+                        O clube de referência na região Oeste. Vem jogar, conviver e evoluir o teu padel num ambiente fantástico.
                     </p>
                 </div>
 
@@ -17,9 +17,9 @@ export default function Footer() {
                 <div>
                     <h4 className="text-lg font-bold mb-6 tracking-widest uppercase">Contactos</h4>
                     <div className="space-y-4 text-gray-400">
-                        <p className="flex items-center gap-3"><MapPin className="text-brand-terracotta" size={20}/> Zona Industrial das Caldas</p>
-                        <p className="flex items-center gap-3"><Phone className="text-brand-terracotta" size={20}/> +351 912 345 678</p>
-                        <p className="flex items-center gap-3"><Mail className="text-brand-terracotta" size={20}/> geral@clubepadelcaldas.pt</p>
+                        <p className="flex items-center gap-3"><MapPin className="text-brand-terracotta" size={20}/> Rua Pedro Nunes 23 e 24, 2500-303 Caldas da Rainha </p>
+                        <p className="flex items-center gap-3"><Phone className="text-brand-terracotta" size={20}/> +351 922 242 632</p>
+                        <p className="flex items-center gap-3"><Mail className="text-brand-terracotta" size={20}/> geralcpcaldas@gmail.com</p>
                     </div>
                 </div>
 
@@ -27,10 +27,10 @@ export default function Footer() {
                 <div>
                     <h4 className="text-lg font-bold mb-6 tracking-widest uppercase">Social</h4>
                     <div className="flex gap-4">
-                        <a href="#" className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-terracotta transition-all">
+                        <a href="https://www.instagram.com/clubepadelcaldas/" className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-terracotta transition-all">
                             <Instagram size={24} />
                         </a>
-                        <a href="#" className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-terracotta transition-all">
+                        <a href="https://www.facebook.com/clubepadelcaldas/" className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-terracotta transition-all">
                             <Facebook size={24} />
                         </a>
                     </div>

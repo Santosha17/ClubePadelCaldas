@@ -30,12 +30,12 @@ export default function Navbar() {
 
                 {/* MENU DESKTOP */}
                 <div className="hidden md:flex items-center gap-8 text-white text-xs md:text-sm font-bold tracking-widest uppercase">
-                    <Link href="#clube" className="hover:text-brand-terracotta transition-colors">O Clube</Link>
+                    <Link href="/#clube" className="hover:text-brand-terracotta transition-colors">O Clube</Link>
                     {/* Corrigido para apontar para a secção certa */}
-                    <Link href="#campos" className="hover:text-brand-terracotta transition-colors">Campos</Link>
+                    <Link href="/#campos" className="hover:text-brand-terracotta transition-colors">Campos</Link>
                     {/* Corrigido para apontar para a secção certa */}
-                    <Link href="#precos" className="hover:text-brand-terracotta transition-colors">Preços</Link>
-                    <Link href="#contactos" className="hover:text-brand-terracotta transition-colors">Contactos</Link>
+                    <Link href="/#precos" className="hover:text-brand-terracotta transition-colors">Preços</Link>
+                    <Link href="/#contactos" className="hover:text-brand-terracotta transition-colors">Contactos</Link>
                 </div>
 
                 {/* CTA BUTTON (Desktop) */}
@@ -59,10 +59,10 @@ export default function Navbar() {
             {/* MENU MOBILE */}
             {mobileMenuOpen && (
                 <div className="fixed inset-0 bg-brand-navy z-40 flex flex-col items-center justify-center gap-8 text-white text-2xl font-bold animate-in fade-in zoom-in">
-                    <Link href="#clube" onClick={() => setMobileMenuOpen(false)}>O Clube</Link>
-                    <Link href="#campos" onClick={() => setMobileMenuOpen(false)}>Campos</Link>
-                    <Link href="#precos" onClick={() => setMobileMenuOpen(false)}>Preços</Link>
-                    <Link href="#contactos" onClick={() => setMobileMenuOpen(false)}>Contactos</Link>
+                    <Link href="/#clube" onClick={() => setMobileMenuOpen(false)}>O Clube</Link>
+                    <Link href="/#campos" onClick={() => setMobileMenuOpen(false)}>Campos</Link>
+                    <Link href="/#precos" onClick={() => setMobileMenuOpen(false)}>Preços</Link>
+                    <Link href="/#contactos" onClick={() => setMobileMenuOpen(false)}>Contactos</Link>
 
                     {/* Botão Mobile */}
                     <a

@@ -34,8 +34,6 @@ export default function Termos() {
                     {/* Adiciona mais parágrafos conforme necessário */}
                 </div>
             </section>
-
-            <Footer />
         </main>
     );
 }

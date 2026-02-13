@@ -30,8 +30,6 @@ export default function Privacidade() {
                     </p>
                 </div>
             </section>
-
-            <Footer />
         </main>
     );
 }

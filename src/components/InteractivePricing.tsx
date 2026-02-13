@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Star, Zap, TrendingUp, CalendarDays, Clock, User, Users } from "lucide-react";
+import Link from "next/link"; // Import necessário para navegação interna
+import { Check, Star, Zap, TrendingUp, CalendarDays, Clock } from "lucide-react";
 
-// --- DADOS DOS PREÇOS (Editáveis aqui) ---
+// --- DADOS DOS PREÇOS ---
 const adultPrices = [
     { pax: "1", oneWeek: "125€", twoWeek: "230€", single: "40€", pack5: "170€" },
     { pax: "2", oneWeek: "70€", twoWeek: "120€", single: "23€", pack5: "100€" },
@@ -25,9 +26,9 @@ const advancedPrices = [
 ];
 
 const rentalPrices = [
-    { duration: "60", offPax: "4,5€", offCourt: "18€", peakPax: "5,5€", peakCourt: "22€" },
-    { duration: "90", offPax: "6,5€", offCourt: "26€", peakPax: "8€", peakCourt: "32€" },
-    { duration: "120", offPax: "9€", offCourt: "36€", peakPax: "11€", peakCourt: "44€" },
+    { duration: "60", offPax: "5€", offCourt: "20€", peakPax: "6€", peakCourt: "24€" },
+    { duration: "90", offPax: "7€", offCourt: "28€", peakPax: "8,5€", peakCourt: "34€" },
+    { duration: "120", offPax: "9,5", offCourt: "38€", peakPax: "11,5€", peakCourt: "46€" },
 ];
 
 export default function InteractivePricing() {
@@ -72,7 +73,7 @@ export default function InteractivePricing() {
     };
 
     return (
-        <div className="max-w-5xl mx-auto px-4 -mt-10 relative z-10">
+        <div className="max-w-5xl mx-auto px-4 -mt-10 relative z-10 scroll-mt-32" id="precos">
             {/* BOTÕES DE NAVEGAÇÃO (TABS) */}
             <div className="flex flex-wrap justify-center gap-4 mb-8">
                 {[
@@ -210,7 +211,7 @@ export default function InteractivePricing() {
                     )}
                 </div>
 
-                {/* LADO DIREITO: RESULTADO PREÇO */}
+                {/* LADO DIREITO: RESULTADO E BOTÃO DINÂMICO */}
                 <div className={`md:w-1/2 p-8 flex flex-col justify-center items-center text-white relative overflow-hidden transition-colors duration-500
              ${activeTab === 'adults' ? 'bg-blue-600' :
                     activeTab === 'kids' ? 'bg-orange-500' :
@@ -240,9 +241,24 @@ export default function InteractivePricing() {
                         </ul>
                     </div>
 
-                    <button className="mt-8 bg-white text-gray-900 px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all w-full md:w-auto">
-                        Reservar Agora
-                    </button>
+                    {/* BOTÃO DINÂMICO AQUI */}
+                    {activeTab === "rental" ? (
+                        <a
+                            href="https://go.tieplayer.com/link/ClubePadeldasCaldas"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mt-8 bg-white text-gray-900 px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all w-full md:w-auto text-center inline-block"
+                        >
+                            RESERVAR AGORA
+                        </a>
+                    ) : (
+                        <Link
+                            href="/aulas"
+                            className="mt-8 bg-white text-gray-900 px-8 py-3 rounded-full font-bold shadow-lg hover:shadow-xl hover:scale-105 transition-all w-full md:w-auto text-center inline-block"
+                        >
+                            INSCREVER
+                        </Link>
+                    )}
                 </div>
             </div>
         </div>

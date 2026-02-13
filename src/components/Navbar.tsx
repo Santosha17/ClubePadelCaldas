@@ -2,21 +2,37 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
 
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+    const pathname = usePathname();
+    const isHomepage = pathname === '/';
+
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 50);
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const navClasses = (!isHomepage || scrolled)
+        ? 'bg-brand-navy py-4 shadow-xl'
+        : 'bg-transparent py-6';
+
     return (
-        <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${scrolled ? 'bg-brand-navy py-4 shadow-xl' : 'bg-transparent py-6'}`}>
-            <div className="container mx-auto px-6 flex justify-between items-center">
+        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${navClasses}`}>
+            {/* CORREÇÃO AQUI: Substituímos "container mx-auto px-6" por "max-w-7xl..." para alinhar com o resto do site */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
 
                 {/* LOGO */}
                 <Link href="/" className="flex items-center gap-3 z-50 hover:opacity-90 transition-opacity">
@@ -31,9 +47,7 @@ export default function Navbar() {
                 {/* MENU DESKTOP */}
                 <div className="hidden md:flex items-center gap-8 text-white text-xs md:text-sm font-bold tracking-widest uppercase">
                     <Link href="/#clube" className="hover:text-brand-terracotta transition-colors">O Clube</Link>
-                    {/* Corrigido para apontar para a secção certa */}
                     <Link href="/#campos" className="hover:text-brand-terracotta transition-colors">Campos</Link>
-                    {/* Corrigido para apontar para a secção certa */}
                     <Link href="/#precos" className="hover:text-brand-terracotta transition-colors">Preços</Link>
                     <Link href="/#contactos" className="hover:text-brand-terracotta transition-colors">Contactos</Link>
                 </div>
@@ -64,7 +78,6 @@ export default function Navbar() {
                     <Link href="/#precos" onClick={() => setMobileMenuOpen(false)}>Preços</Link>
                     <Link href="/#contactos" onClick={() => setMobileMenuOpen(false)}>Contactos</Link>
 
-                    {/* Botão Mobile */}
                     <a
                         href="https://go.tieplayer.com/link/ClubePadeldasCaldas"
                         target="_blank"

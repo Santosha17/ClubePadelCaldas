@@ -78,6 +78,9 @@ export default function Footer() {
 
                 <div className="flex flex-wrap justify-center gap-6 font-medium">
                     {/* Mais tarde podes criar estas páginas e apontar os links */}
+                    <Link href="/hino" className="hover:text-brand-terracotta transition-colors">
+                        Hino do Clube
+                    </Link>
                     <Link href="/faq" className="hover:text-brand-terracotta transition-colors">
                         FAQ
                     </Link>

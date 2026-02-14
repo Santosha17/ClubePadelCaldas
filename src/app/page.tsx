@@ -3,6 +3,7 @@ import FeaturesGrid from '@/components/FeaturesGrid';
 import SplitSection from '@/components/SplitSection';
 import StatsBanner from '@/components/StatsBanner';
 import InteractivePricing from '@/components/InteractivePricing';
+import Testimonials from "@/components/Testimonials";
 
 export default function Home() {
     return (
@@ -21,6 +22,7 @@ export default function Home() {
 
             <SplitSection />
             <StatsBanner />
+            <Testimonials />
         </main>
     );
 }

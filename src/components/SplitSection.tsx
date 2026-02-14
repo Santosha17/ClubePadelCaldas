@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import Image from 'next/image';
+// Importar a imagem diretamente
+import splitImg from '../assets/split_image.jpg';
 
 export default function SplitSection() {
     return (
@@ -26,7 +29,6 @@ export default function SplitSection() {
                     <li className="flex items-center gap-2">✓ Aulas para todos os níveis</li>
                     <li className="flex items-center gap-2">✓ Organização de Torneios sociais, ligas e clínicas</li>
                     <li className="flex items-center gap-2">✓ Comunidade Ativa</li>
-
                 </ul>
 
                 <Link
@@ -37,12 +39,14 @@ export default function SplitSection() {
                 </Link>
             </div>
 
-            {/* Lado Direito - Imagem (Idealmente uma foto real dos campos azuis do CPC) */}
+            {/* Lado Direito - Imagem Corrigida */}
             <div className="relative min-h-[400px]">
-                <img
-                    src="https://images.unsplash.com/photo-1554068865-24cecd4e34b8?q=80&w=2070&auto=format&fit=crop"
-                    className="absolute inset-0 w-full h-full object-cover"
+                <Image
+                    src={splitImg}
                     alt="Interior do Clube Padel Caldas"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
                 />
             </div>
         </section>

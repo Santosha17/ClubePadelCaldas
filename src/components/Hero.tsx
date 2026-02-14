@@ -1,12 +1,49 @@
+'use client';
+
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import Image from "next/image";
 import heroImg from "../assets/hero.webp";
 
 export default function Hero() {
+
+    // Função para realizar o scroll suave com duração personalizada
+    const smoothScrollTo = (targetId: string, duration: number) => {
+        const target = document.getElementById(targetId);
+        if (!target) return;
+
+        const startPosition = window.scrollY;
+        // Subtraímos 100px para compensar a altura da Navbar fixa
+        const targetPosition = target.getBoundingClientRect().top + window.scrollY - 100;
+        const distance = targetPosition - startPosition;
+        let startTime: number | null = null;
+
+        function animation(currentTime: number) {
+            if (startTime === null) startTime = currentTime;
+            const timeElapsed = currentTime - startTime;
+
+            // Função matemática (Easing) para o movimento não ser robótico
+            const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+
+            window.scrollTo(0, run);
+
+            if (timeElapsed < duration) requestAnimationFrame(animation);
+        }
+
+        // Função de aceleração/desaceleração suave
+        function easeInOutQuad(t: number, b: number, c: number, d: number) {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t + b;
+            t--;
+            return -c / 2 * (t * (t - 2) - 1) + b;
+        }
+
+        requestAnimationFrame(animation);
+    };
+
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
-            {/* Imagem de Fundo (Podes depois trocar por um vídeo como no GreatPadel) */}
+            {/* Imagem de Fundo */}
             <div className="absolute inset-0 z-0">
                 <Image
                     src={heroImg}
@@ -45,9 +82,18 @@ export default function Hero() {
                 </div>
             </div>
 
-            {/* Indicador de Scroll */}
-            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-white animate-bounce">
-                <ArrowRight className="rotate-90 w-8 h-8" />
+            {/* Seta com Scroll Lento Personalizado */}
+            <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce z-20">
+                <button
+                    onClick={(e) => {
+                        e.preventDefault();
+                        smoothScrollTo('servicos', 1000);
+                    }}
+                    className="cursor-pointer text-white hover:text-brand-terracotta transition-colors duration-500 block focus:outline-none bg-transparent border-none p-0"
+                    aria-label="Ver serviços"
+                >
+                    <ArrowRight className="rotate-90 w-8 h-8" />
+                </button>
             </div>
         </section>
     );

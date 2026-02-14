@@ -71,9 +71,10 @@ export default function Navbar() {
 
                 {/* MENU DESKTOP */}
                 <div className={`hidden md:flex items-center gap-8 text-xs md:text-sm font-bold tracking-widest uppercase transition-colors duration-500 ${textClasses}`}>
-                    <Link href="/#clube" className="hover:opacity-75 transition-opacity">O Clube</Link>
-                    <Link href="/#campos" className="hover:opacity-75 transition-opacity">Campos</Link>
+
+                    <Link href="/#serviços" className="hover:opacity-75 transition-opacity">Serviços</Link>
                     <Link href="/#precos" className="hover:opacity-75 transition-opacity">Preços</Link>
+                    <Link href="/#clube" className="hover:opacity-75 transition-opacity">O Clube</Link>
                     <Link href="/contactos" className="hover:opacity-75 transition-opacity">Contactos</Link>
                 </div>
 
@@ -102,9 +103,9 @@ export default function Navbar() {
             {/* MENU MOBILE */}
             {mobileMenuOpen && (
                 <div className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center gap-8 text-brand-navy text-2xl font-bold animate-in fade-in zoom-in">
-                    <Link href="/#clube" onClick={() => setMobileMenuOpen(false)}>O Clube</Link>
-                    <Link href="/#campos" onClick={() => setMobileMenuOpen(false)}>Campos</Link>
+                    <Link href="/#serviços" onClick={() => setMobileMenuOpen(false)}>Serviços</Link>
                     <Link href="/#precos" onClick={() => setMobileMenuOpen(false)}>Preços</Link>
+                    <Link href="/#clube" onClick={() => setMobileMenuOpen(false)}>O Clube</Link>
                     <Link href="/contactos" onClick={() => setMobileMenuOpen(false)}>Contactos</Link>
 
                     <a

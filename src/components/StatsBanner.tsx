@@ -13,7 +13,7 @@ export default function StatsBanner() {
                     {/* Comunidade */}
                     <div className="flex flex-col items-center">
                         <span className="text-4xl md:text-5xl font-black text-brand-terracotta mb-2">M/F</span>
-                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">Balneários Premium</span>
+                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">Balneários</span>
                     </div>
 
                     {/* Aulas */}

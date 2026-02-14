@@ -30,7 +30,7 @@ export default function Footer() {
 
                         <a
                             href="tel:+351922242632"
-                            className="flex items-center gap-3 hover:text-brand-terracotta transition-colors"
+                            className="flex items-center gap-3 hover:text-brand-terracotta hover:underline transition-all"
                         >
                             <Phone className="text-brand-terracotta shrink-0" size={20}/>
                             <span>+351 922 242 632</span>

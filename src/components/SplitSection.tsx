@@ -30,7 +30,7 @@ export default function SplitSection() {
                 </ul>
 
                 <Link
-                    href="#contactos"
+                    href="/contactos"
                     className="w-fit border-b-2 border-brand-terracotta text-white pb-1 font-bold hover:text-brand-terracotta transition-colors relative z-10"
                 >
                     VISITAR O CLUBE

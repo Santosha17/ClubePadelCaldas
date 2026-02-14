@@ -74,7 +74,7 @@ export default function Navbar() {
                     <Link href="/#clube" className="hover:opacity-75 transition-opacity">O Clube</Link>
                     <Link href="/#campos" className="hover:opacity-75 transition-opacity">Campos</Link>
                     <Link href="/#precos" className="hover:opacity-75 transition-opacity">Preços</Link>
-                    <Link href="/#contactos" className="hover:opacity-75 transition-opacity">Contactos</Link>
+                    <Link href="/contactos" className="hover:opacity-75 transition-opacity">Contactos</Link>
                 </div>
 
                 {/* CTA BUTTON */}
@@ -105,7 +105,7 @@ export default function Navbar() {
                     <Link href="/#clube" onClick={() => setMobileMenuOpen(false)}>O Clube</Link>
                     <Link href="/#campos" onClick={() => setMobileMenuOpen(false)}>Campos</Link>
                     <Link href="/#precos" onClick={() => setMobileMenuOpen(false)}>Preços</Link>
-                    <Link href="/#contactos" onClick={() => setMobileMenuOpen(false)}>Contactos</Link>
+                    <Link href="/contactos" onClick={() => setMobileMenuOpen(false)}>Contactos</Link>
 
                     <a
                         href="https://go.tieplayer.com/link/ClubePadeldasCaldas"

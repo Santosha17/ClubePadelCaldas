@@ -110,8 +110,8 @@ export default function Contactos() {
                                     <div>
                                         <p className="text-sm text-gray-500 font-bold uppercase">Morada</p>
                                         <p className="text-brand-navy font-medium leading-relaxed">
-                                            Rua da Associação 26,<br />
-                                            2500-752 Caldas da Rainha
+                                            Rua Pedro Nunes 23 e 24,<br />
+                                            2500-303 Caldas da Rainha
                                         </p>
                                     </div>
                                 </div>

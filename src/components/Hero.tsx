@@ -52,8 +52,10 @@ export default function Hero() {
                     className="object-cover"
                     priority
                 />
-                {/* Overlay Azul Marinho */}
-                <div className="absolute inset-0 bg-brand-navy/60 mix-blend-multiply"></div>
+
+                {/* --- AQUI ESTÁ A MUDANÇA --- */}
+                {/* Overlay com Gradiente: Mais escuro em baixo para o texto laranja sobressair */}
+                <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/40 via-brand-navy/60 to-brand-navy/90 mix-blend-multiply"></div>
             </div>
 
             <div className="relative z-10 text-center text-white px-4 max-w-5xl">

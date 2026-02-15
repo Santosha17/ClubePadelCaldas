@@ -381,7 +381,7 @@
       "collection": {
         "title": "1. Data Collection",
         "content": "Clube Padel Caldas respects your privacy. We only collect the data strictly necessary for providing our booking and billing services...",
-        "placeholder": "[Here you should place the legal text about GDPR, how you store contacts, if you use video surveillance at the club, etc.]"
+        "placeholder": ""
       },
       "sharing": {
         "title": "2. Information Sharing",
@@ -399,7 +399,7 @@
       "intro": {
         "title": "1. Introduction",
         "content": "Welcome to Clube Padel Caldas. By using our services, renting courts, or participating in our classes, you agree to these terms and conditions...",
-        "placeholder": "[Here you should place the legal text provided by the club regarding rules of use, mandatory footwear, etc.]"
+        "placeholder": ""
       },
       "bookings": {
         "title": "2. Bookings and Cancellations",

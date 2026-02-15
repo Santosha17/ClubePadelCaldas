@@ -4,6 +4,8 @@ import SplitSection from '@/components/SplitSection';
 import StatsBanner from '@/components/StatsBanner';
 import InteractivePricing from '@/components/InteractivePricing';
 import Testimonials from "@/components/Testimonials";
+import Partners from '@/components/Partners';
+import CTA from '@/components/CTA';
 
 export default function Home() {
     return (
@@ -23,6 +25,8 @@ export default function Home() {
             <SplitSection />
             <StatsBanner />
             <Testimonials />
+            <Partners />
+            <CTA />
         </main>
     );
 }

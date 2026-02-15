@@ -41,50 +41,56 @@ export default function Navbar() {
 
     return (
         <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${navClasses}`}>
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center relative h-20">
+            {/* MUDANÇA PRINCIPAL: grid-cols-2 (mobile) e grid-cols-3 (desktop).
+              Isso cria 3 colunas de tamanhos iguais, garantindo que o centro seja o centro real.
+            */}
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-2 md:grid-cols-3 items-center h-20">
 
-                {/* LOGO E NOME - flex-1 garante que ocupa o espaço disponível e ml-0 evita colagens */}
-                <div className="flex-1 flex items-center min-w-0">
-                    <Link href="/" className="flex items-center gap-2 md:gap-3 z-50 hover:opacity-90 transition-opacity group flex-shrink-0">
-                        <div className={`relative w-12 h-8 md:w-24 md:h-16 transition-all duration-500 ${logoClasses}`}>
+                {/* COLUNA 1: LOGO E NOME (Alinhado à Esquerda) */}
+                <div className="flex justify-start min-w-0">
+                    <Link href="/" className="flex items-center gap-2 md:gap-3 hover:opacity-90 transition-opacity group">
+                        <div className={`relative w-12 h-8 md:w-24 md:h-16 flex-shrink-0 transition-all duration-500 ${logoClasses}`}>
                             <Image src={logoImg} alt="Logo Clube Padel Caldas" fill className="object-contain" priority />
                         </div>
+                        {/* 'hidden lg:block' esconde o texto em janelas muito pequenas para dar espaço ao menu */}
                         <div className={`font-bold text-sm md:text-xl tracking-wider leading-tight transition-colors duration-500 truncate ${textClasses}`}>
                             {t('brandPrefix')} <span className={isTransparent ? 'text-white' : 'text-brand-terracotta'}>{t('brandSuffix')}</span>
                         </div>
                     </Link>
                 </div>
 
-                {/* MENU DESKTOP - CENTRALIZADO */}
-                <div className={`hidden md:flex items-center gap-8 text-sm font-bold tracking-widest uppercase transition-colors duration-500 md:absolute md:left-1/2 md:-translate-x-1/2 ${textClasses}`}>
-                    <Link href="/#servicos">{t('links.services')}</Link>
-                    <Link href="/#precos">{t('links.prices')}</Link>
-                    <Link href="/#clube">{t('links.club')}</Link>
-                    <Link href="/contactos">{t('links.contacts')}</Link>
+                {/* COLUNA 2: MENU DESKTOP (Alinhado ao Centro) */}
+                <div className={`hidden md:flex justify-center items-center gap-4 lg:gap-8 text-sm font-bold tracking-widest uppercase transition-colors duration-500 ${textClasses}`}>
+                    <Link href="/#servicos" className="hover:opacity-75 whitespace-nowrap">{t('links.services')}</Link>
+                    <Link href="/#precos" className="hover:opacity-75 whitespace-nowrap">{t('links.prices')}</Link>
+                    <Link href="/#clube" className="hover:opacity-75 whitespace-nowrap">{t('links.club')}</Link>
+                    <Link href="/contactos" className="hover:opacity-75 whitespace-nowrap">{t('links.contacts')}</Link>
                 </div>
 
-                {/* LADO DIREITO DESKTOP */}
-                <div className="hidden md:flex items-center z-50 flex-shrink-0">
-                    <LanguageSwitcher isTransparent={isTransparent} />
-                    <a
-                        href="https://go.tieplayer.com/link/ClubePadeldasCaldas"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`px-6 py-2.5 rounded-full font-bold text-sm tracking-wider transition-all duration-300 border-2 shadow-lg transform hover:scale-105 inline-block
-                            ${isTransparent
-                            ? 'bg-white text-brand-navy border-white hover:bg-brand-terracotta hover:border-brand-terracotta hover:text-white'
-                            : 'bg-brand-terracotta text-white border-brand-terracotta hover:bg-brand-navy hover:border-brand-navy'
-                        }`}
-                    >
-                        {t('cta')}
-                    </a>
-                </div>
+                {/* COLUNA 3: SWITCHER, CTA E MOBILE TOGGLE (Alinhado à Direita) */}
+                <div className="flex justify-end items-center gap-3 sm:gap-4">
+                    <div className="flex items-center">
+                        <LanguageSwitcher isTransparent={isTransparent} />
+                    </div>
 
-                {/* LADO DIREITO MOBILE - ml-4 garante o afastamento do nome do clube */}
-                <div className="flex items-center gap-3 sm:gap-6 md:hidden z-50 flex-shrink-0 ml-4">
-                    <LanguageSwitcher isTransparent={isTransparent} />
+                    <div className="hidden md:block">
+                        <a
+                            href="https://go.tieplayer.com/link/ClubePadeldasCaldas"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={`px-4 lg:px-6 py-2.5 rounded-full font-bold text-xs lg:text-sm tracking-wider transition-all duration-300 border-2 shadow-lg transform hover:scale-105 inline-block whitespace-nowrap
+                                ${isTransparent
+                                ? 'bg-white text-brand-navy border-white hover:bg-brand-terracotta hover:border-brand-terracotta hover:text-white'
+                                : 'bg-brand-terracotta text-white border-brand-terracotta hover:bg-brand-navy hover:border-brand-navy'
+                            }`}
+                        >
+                            {t('cta')}
+                        </a>
+                    </div>
+
+                    {/* MOBILE TOGGLE */}
                     <button
-                        className={`transition-colors duration-500 ${mobileMenuOpen ? 'text-brand-navy' : textClasses}`}
+                        className={`md:hidden p-1 transition-colors duration-500 ${mobileMenuOpen ? 'text-brand-navy' : textClasses}`}
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
                         {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -92,7 +98,7 @@ export default function Navbar() {
                 </div>
             </div>
 
-            {/* MENU MOBILE */}
+            {/* MENU MOBILE (Sem alterações) */}
             {mobileMenuOpen && (
                 <div className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center gap-8 text-brand-navy text-2xl font-bold animate-in fade-in slide-in-from-top duration-300">
                     <Link href="/#servicos" onClick={() => setMobileMenuOpen(false)}>{t('links.services')}</Link>

@@ -32,6 +32,9 @@
   background-color: var(--color-brand-bg); /* Agora usa o #F3F4F6 */
   color: var(--color-brand-navy);
 }
+html {
+  scroll-behavior: smooth;
+}
 
 body {
   margin: 0;

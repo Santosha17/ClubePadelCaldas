@@ -128,11 +128,11 @@ export default function Contactos() {
                             <ul className="space-y-4 text-sm">
                                 <li className="flex justify-between items-center border-b border-white/10 pb-2">
                                     <span className="text-gray-300">{t('schedule.weekdays')}</span>
-                                    <span className="font-bold">07:30 - 00:00</span>
+                                    <span className="font-bold">07h30 - 00h00</span>
                                 </li>
                                 <li className="flex justify-between items-center">
                                     <span className="text-gray-300">{t('schedule.sundays')}</span>
-                                    <span className="font-bold">07:30 - 20:00</span>
+                                    <span className="font-bold">07h30 - 00h00</span>
                                 </li>
                             </ul>
                         </div>

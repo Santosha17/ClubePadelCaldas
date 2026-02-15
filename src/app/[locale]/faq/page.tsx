@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
-// 1. Importar o hook de tradução
 import { useTranslations } from 'next-intl';
+
+export const runtime = 'edge';
 
 export default function FAQ() {
     // 2. Inicializar as traduções

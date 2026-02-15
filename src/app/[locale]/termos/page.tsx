@@ -1,7 +1,8 @@
 'use client';
 
-// 1. Importar o hook de tradução
 import { useTranslations } from 'next-intl';
+
+export const runtime = 'edge';
 
 export default function Termos() {
     // 2. Inicializar as traduções

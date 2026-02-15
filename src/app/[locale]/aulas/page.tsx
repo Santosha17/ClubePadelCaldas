@@ -2,11 +2,11 @@
 
 import { useState } from "react";
 import Image from "next/image";
-// 1. Usar o Link do navigation
 import { Link } from "@/navigation";
 import { Check, User, Mail, Phone, Calendar, Trophy, Users, Heart } from "lucide-react";
-// 2. Importar hook de tradução
 import { useTranslations } from "next-intl";
+
+export const runtime = 'edge';
 
 // --- DADOS DA EQUIPA ---
 const coaches = [

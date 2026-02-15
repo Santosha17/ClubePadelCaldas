@@ -11,8 +11,9 @@ import {
     Instagram,
     MessageCircle
 } from "lucide-react";
-// 1. Importar o hook de tradução
 import { useTranslations } from "next-intl";
+
+export const runtime = 'edge';
 
 export default function Contactos() {
     // 2. Inicializar as traduções

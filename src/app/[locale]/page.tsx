@@ -11,6 +11,8 @@ import CTA from '@/components/CTA';
 // 1. Importar o hook
 import { useTranslations } from 'next-intl';
 
+export const runtime = 'edge';
+
 export default function Home() {
     // 2. Inicializar a tradução
     const t = useTranslations('Homepage');

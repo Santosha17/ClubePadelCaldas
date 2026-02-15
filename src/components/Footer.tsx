@@ -1,22 +1,31 @@
-import Link from 'next/link';
+'use client';
+
+// 1. MUDAR O IMPORT DO LINK
+import { Link } from '@/navigation';
 import { MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
+// 2. IMPORTAR O HOOK
+import { useTranslations } from 'next-intl';
 
 export default function Footer() {
+    // 3. INICIALIZAR AS TRADUÇÕES (Secção 'Footer')
+    const t = useTranslations('Footer');
+
     return (
         <footer className="bg-brand-navy text-white pt-20 pb-10 border-t-8 border-brand-terracotta" id="contactos">
             <div className="container mx-auto px-6 grid md:grid-cols-3 gap-12 mb-16">
 
                 {/* Coluna 1 */}
                 <div>
+                    {/* O Nome da marca geralmente não se traduz, mantivemos a estrutura visual */}
                     <h3 className="text-2xl font-bold mb-6">CLUBE PADEL <span className="text-brand-terracotta">CALDAS</span></h3>
                     <p className="text-gray-400 leading-relaxed max-w-sm">
-                        O clube de referência na região Oeste. Vem jogar, conviver e evoluir o teu padel num ambiente fantástico.
+                        {t('description')}
                     </p>
                 </div>
 
-                {/* Coluna 2 (Agora com links clicáveis) */}
+                {/* Coluna 2 */}
                 <div>
-                    <h4 className="text-lg font-bold mb-6 tracking-widest uppercase">Contactos</h4>
+                    <h4 className="text-lg font-bold mb-6 tracking-widest uppercase">{t('sections.contacts')}</h4>
                     <div className="space-y-4 text-gray-400">
                         <a
                             href="https://maps.google.com/?q=Rua+Pedro+Nunes+23+e+24,+2500-303+Caldas+da+Rainha"
@@ -48,7 +57,7 @@ export default function Footer() {
 
                 {/* Coluna 3 */}
                 <div>
-                    <h4 className="text-lg font-bold mb-6 tracking-widest uppercase">Social</h4>
+                    <h4 className="text-lg font-bold mb-6 tracking-widest uppercase">{t('sections.social')}</h4>
                     <div className="flex gap-4">
                         <a
                             href="https://www.instagram.com/clubepadeldascaldas"
@@ -73,22 +82,21 @@ export default function Footer() {
             {/* BARRA INFERIOR - Direitos e Links Legais */}
             <div className="container mx-auto px-6 border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-gray-500 text-sm">
                 <div className="text-center md:text-left">
-                    &copy; {new Date().getFullYear()} Clube Padel Caldas. Todos os direitos reservados.
+                    © {new Date().getFullYear()} {t('copyright')}
                 </div>
 
                 <div className="flex flex-wrap justify-center gap-6 font-medium">
-                    {/* Mais tarde podes criar estas páginas e apontar os links */}
                     <Link href="/hino" className="hover:text-brand-terracotta transition-colors">
-                        Hino do Clube
+                        {t('legal.anthem')}
                     </Link>
                     <Link href="/faq" className="hover:text-brand-terracotta transition-colors">
-                        FAQ
+                        {t('legal.faq')}
                     </Link>
                     <Link href="/termos" className="hover:text-brand-terracotta transition-colors">
-                        Termos e Condições
+                        {t('legal.terms')}
                     </Link>
                     <Link href="/privacidade" className="hover:text-brand-terracotta transition-colors">
-                        Política de Privacidade
+                        {t('legal.privacy')}
                     </Link>
                 </div>
             </div>

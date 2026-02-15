@@ -1,34 +1,29 @@
-import { Star, Quote } from 'lucide-react';
-import Image from 'next/image';
+'use client';
 
-// Dados fictícios (podes depois trocar por reviews reais do Google/Facebook)
-const testimonials = [
+import { Star, Quote } from 'lucide-react';
+import { useTranslations } from 'next-intl';
+
+// Configuramos apenas os dados visuais (imagens e rating) aqui.
+// O texto (Nome, Cargo, Conteúdo) vem do ficheiro pt.json / en.json para permitir tradução.
+const testimonialsConfig = [
     {
-        name: "Marcelo Pasco",
-        role: "Jogador Social",
-        content: "Excelente infraestrutura para a prática de Padel campos em excelente condições de utilização. Ambiente familiar e agradável, pode-se conviver ver bons jogos de padel. Equipa técnica 5 estrelas ,pode-se beber uma bebida têm as melhores tostas mistas da\n" +
-            "região e arredores.",
         rating: 5,
-        // Podes usar uma foto real ou um placeholder
         image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ricardo"
     },
     {
-        name: "Ana Martins",
-        role: "Aluna",
-        content: "Comecei a ter aulas há 3 meses e a evolução é notória. Os treinadores são super atenciosos e o ambiente é muito familiar.",
         rating: 5,
         image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Ana"
     },
     {
-        name: "Pedro Costa",
-        role: "Jogador Social",
-        content: "Campos de topo e o bar tem uma vista fantástica para os jogos. O melhor spot para o pós-jogo com a malta.",
         rating: 5,
         image: "https://api.dicebear.com/7.x/avataaars/svg?seed=Pedro"
     }
 ];
 
 export default function Testimonials() {
+    // 1. Inicializar as traduções
+    const t = useTranslations('Testimonials');
+
     return (
         <section className="py-24 bg-white relative overflow-hidden">
             {/* Elementos decorativos de fundo */}
@@ -39,15 +34,15 @@ export default function Testimonials() {
 
                 {/* Cabeçalho */}
                 <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-brand-navy mb-4">A voz dos nossos atletas</h2>
+                    <h2 className="text-4xl font-bold text-brand-navy mb-4">{t('title')}</h2>
                     <p className="text-gray-500 max-w-2xl mx-auto">
-                        A comunidade do Clube Padel Caldas não para de crescer. Vê o que dizem sobre nós.
+                        {t('subtitle')}
                     </p>
                 </div>
 
                 {/* Grid de Reviews */}
                 <div className="grid md:grid-cols-3 gap-8">
-                    {testimonials.map((item, index) => (
+                    {testimonialsConfig.map((item, index) => (
                         <div
                             key={index}
                             className="bg-gray-50 p-8 rounded-3xl relative hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-lg border border-gray-100"
@@ -62,40 +57,41 @@ export default function Testimonials() {
                                 ))}
                             </div>
 
-                            {/* Texto */}
+                            {/* Texto (Traduzido dinamicamente pelo Index) */}
+                            {/* O next-intl permite aceder a arrays usando 'reviews.0.content', etc. */}
                             <p className="text-gray-600 mb-8 leading-relaxed italic">
-                                "{item.content}"
+                                "{t(`reviews.${index}.content`)}"
                             </p>
 
                             {/* Autor */}
                             <div className="flex items-center gap-4 border-t border-gray-200 pt-6">
                                 <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
-                                    {/* Nota: Estou a usar uma API de avatars para exemplo.
-                        Se usares fotos reais, usa o componente <Image /> do Next.js */}
                                     <img
                                         src={item.image}
-                                        alt={item.name}
+                                        alt={t(`reviews.${index}.name`)}
                                         className="w-full h-full object-cover"
                                     />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-brand-navy">{item.name}</h4>
-                                    <span className="text-xs text-brand-terracotta font-bold uppercase tracking-wider">{item.role}</span>
+                                    <h4 className="font-bold text-brand-navy">{t(`reviews.${index}.name`)}</h4>
+                                    <span className="text-xs text-brand-terracotta font-bold uppercase tracking-wider">
+                                        {t(`reviews.${index}.role`)}
+                                    </span>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
 
-                {/* Botão Google Reviews (Opcional) */}
+                {/* Botão Google Reviews */}
                 <div className="text-center mt-12">
                     <a
-                        href="https://www.google.com/search?num=10&sca_esv=9459100d7edd2511&sxsrf=ANbL-n7w_pKBCywsAxZ0Jkx1Nvvn57VuYA:1771072768891&uds=ALYpb_ncDc7jTlmw6Mmq7NjuX5c-KQKv-IpR8SjFSqSJ6DYAcBJrNGN76hEhcij5vtyJK5G819CvV7Fm_PL4iEo4-poGIIGvYM76ndqEO1j3kcjtbj0d3egQGssIXsuJijLrtJABTNEV9iN1EdzcLyNP69mnNlnZU-onRo9oTkdYelclryMH4KA&q=Clube+Padel+Caldas+Cr%C3%ADticas&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOWmPCZsDiiV7A0ZvEmAcMw_EVaAMbwG4E1WTX_bh0tl3xsnSEWqEPuf7KpKjCkTUneV_lqbbiuWr6Sk1GeeK6pCOGlTmITqSrSQ8cKHM2B9vC_DjKQ%3D%3D&hl=pt-PT&sa=X&ved=2ahUKEwicjouagNmSAxUsRPEDHU-dE4MQ_4MLegQIWBAO&biw=1869&bih=896&dpr=1"
+                        href="https://www.google.com/search?q=Clube+Padel+Caldas+Cr%C3%ADticas" // Link simplificado
                         target="_blank"
                         rel="noreferrer"
                         className="inline-flex items-center gap-2 text-brand-navy font-bold hover:text-brand-terracotta transition-colors border-b-2 border-brand-navy/10 hover:border-brand-terracotta pb-1"
                     >
-                        Ver todas as reviews no Google <span aria-hidden="true">&rarr;</span>
+                        {t('googleLink')} <span aria-hidden="true">&rarr;</span>
                     </a>
                 </div>
 

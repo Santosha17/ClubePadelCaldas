@@ -1,4 +1,10 @@
+'use client';
+
+import { useTranslations } from 'next-intl';
+
 export default function StatsBanner() {
+    const t = useTranslations('Stats');
+
     return (
         <section className="bg-brand-navy py-16 border-t border-white/5">
             <div className="container mx-auto px-6">
@@ -6,26 +12,42 @@ export default function StatsBanner() {
 
                     {/* Campos Reais */}
                     <div className="flex flex-col items-center">
-                        <span className="text-4xl md:text-5xl font-black text-brand-terracotta mb-2">6</span>
-                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">Campos (5+1)</span>
+                        <span className="text-4xl md:text-5xl font-black text-brand-terracotta mb-2">
+                            {t('courts.value')}
+                        </span>
+                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">
+                            {t('courts.label')}
+                        </span>
                     </div>
 
-                    {/* Comunidade */}
-                    <div className="flex flex-col items-center">
-                        <span className="text-4xl md:text-5xl font-black text-brand-terracotta mb-2">M/F</span>
-                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">Balneários</span>
+                    {/* Comunidade / Balneários */}
+                    <div className="flex flex-col items-center pl-8 md:pl-0">
+                        <span className="text-4xl md:text-5xl font-black text-brand-terracotta mb-2">
+                            {t('lockerRooms.value')}
+                        </span>
+                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">
+                            {t('lockerRooms.label')}
+                        </span>
                     </div>
 
-                    {/* Aulas */}
-                    <div className="flex flex-col items-center">
-                        <span className="text-4xl md:text-5xl font-black text-brand-terracotta mb-2">CPC</span>
-                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">Academia</span>
+                    {/* Aulas / Academia */}
+                    <div className="flex flex-col items-center pl-8 md:pl-0">
+                        <span className="text-4xl md:text-5xl font-black text-brand-terracotta mb-2">
+                            {t('academy.value')}
+                        </span>
+                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">
+                            {t('academy.label')}
+                        </span>
                     </div>
 
-                    {/* Bar */}
-                    <div className="flex flex-col items-center">
-                        <span className="text-4xl md:text-5xl font-black text-brand-terracotta mb-2">Bar</span>
-                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">Zona Social</span>
+                    {/* Bar / Social */}
+                    <div className="flex flex-col items-center pl-8 md:pl-0">
+                        <span className="text-4xl md:text-5xl font-black text-brand-terracotta mb-2">
+                            {t('bar.value')}
+                        </span>
+                        <span className="text-white/60 text-sm font-bold tracking-widest uppercase">
+                            {t('bar.label')}
+                        </span>
                     </div>
 
                 </div>

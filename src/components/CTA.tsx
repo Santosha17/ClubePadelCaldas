@@ -1,6 +1,9 @@
-import Link from 'next/link';
+import { Link } from '@/navigation';
+import { useTranslations } from 'next-intl';
 
 export default function CTA() {
+    const t = useTranslations('CTA');
+
     return (
         <section className="relative py-24 bg-brand-navy overflow-hidden">
             {/* Background Decorativo (Abstrato) */}
@@ -11,11 +14,10 @@ export default function CTA() {
 
             <div className="container mx-auto px-6 relative z-10 text-center">
                 <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 tracking-tight">
-                    Vamos a jogo?
+                    {t('title')}
                 </h2>
                 <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-                    Quer sejas iniciante ou profissional, o Clube Padel Caldas é a tua casa.
-                    Junta-te a nós hoje mesmo.
+                    {t('description')}
                 </p>
 
                 <div className="flex flex-col sm:flex-row justify-center gap-4">
@@ -25,13 +27,13 @@ export default function CTA() {
                         rel="noopener noreferrer"
                         className="px-8 py-4 bg-brand-terracotta text-white font-bold rounded-full shadow-lg hover:shadow-brand-terracotta/50 hover:scale-105 transition-all duration-300 text-lg"
                     >
-                        Reservar Campo Agora
+                        {t('buttons.book')}
                     </a>
                     <Link
                         href="/contactos"
                         className="px-8 py-4 bg-white/10 backdrop-blur-sm border border-white/20 text-white font-bold rounded-full hover:bg-white hover:text-brand-navy transition-all duration-300 text-lg"
                     >
-                        Fale Connosco
+                        {t('buttons.contact')}
                     </Link>
                 </div>
             </div>

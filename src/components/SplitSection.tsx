@@ -1,9 +1,15 @@
-import Link from 'next/link';
+'use client';
+
+// 1. IMPORTAR LINK DO NAVIGATION E HOOK DE TRADUÇÃO
+import { Link } from '@/navigation';
 import Image from 'next/image';
-// Importar a imagem diretamente
+import { useTranslations } from 'next-intl';
 import splitImg from '../assets/split_image.jpg';
 
 export default function SplitSection() {
+    // 2. INICIALIZAR TRADUÇÕES
+    const t = useTranslations('About');
+
     return (
         <section className="grid md:grid-cols-2" id="clube">
             {/* Lado Esquerdo - Texto */}
@@ -12,38 +18,38 @@ export default function SplitSection() {
                 <div className="absolute top-0 right-0 w-64 h-64 bg-brand-terracotta/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
 
                 <span className="text-brand-terracotta font-bold tracking-widest uppercase mb-4 relative z-10">
-          Sobre Nós
-        </span>
+                    {t('label')}
+                </span>
                 <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight relative z-10">
-                    O primeiro clube das <br /> Caldas da Rainha.
+                    {/* Nota: Se quiseres forçar a quebra de linha <br/> na tradução,
+                        precisas de usar t.rich(), mas para simplificar usamos o texto direto */}
+                    {t('title')}
                 </h2>
                 <p className="text-gray-400 leading-relaxed mb-8 text-lg relative z-10">
-                    Localizado na Zona Industrial, o Clube Padel Caldas oferece as melhores condições para a prática da modalidade.
-                    Com 5 campos indoor e 1 coberto de última geração com vidro panorâmico e relva WPT.
-                    A melhor experiência de jogo garantida.
+                    {t('description')}
                 </p>
 
                 <ul className="mb-8 space-y-3 text-gray-300 relative z-10">
-                    <li className="flex items-center gap-2">✓ Estacionamento Privativo</li>
-                    <li className="flex items-center gap-2">✓ Campos Premium</li>
-                    <li className="flex items-center gap-2">✓ Aulas para todos os níveis</li>
-                    <li className="flex items-center gap-2">✓ Organização de Torneios sociais, ligas e clínicas</li>
-                    <li className="flex items-center gap-2">✓ Comunidade Ativa</li>
+                    <li className="flex items-center gap-2">✓ {t('features.parking')}</li>
+                    <li className="flex items-center gap-2">✓ {t('features.courts')}</li>
+                    <li className="flex items-center gap-2">✓ {t('features.classes')}</li>
+                    <li className="flex items-center gap-2">✓ {t('features.tournaments')}</li>
+                    <li className="flex items-center gap-2">✓ {t('features.community')}</li>
                 </ul>
 
                 <Link
                     href="/contactos"
                     className="w-fit border-b-2 border-brand-terracotta text-white pb-1 font-bold hover:text-brand-terracotta transition-colors relative z-10"
                 >
-                    VISITAR O CLUBE
+                    {t('cta')}
                 </Link>
             </div>
 
-            {/* Lado Direito - Imagem Corrigida */}
+            {/* Lado Direito - Imagem */}
             <div className="relative min-h-[400px]">
                 <Image
                     src={splitImg}
-                    alt="Interior do Clube Padel Caldas"
+                    alt={t('imageAlt')} // Tradução do texto alternativo
                     fill
                     className="object-cover"
                     sizes="(max-width: 768px) 100vw, 50vw"

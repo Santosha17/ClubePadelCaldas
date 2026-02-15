@@ -1,11 +1,16 @@
 'use client';
 
-import Link from 'next/link';
+// 1. MUDAR O IMPORT: Usar o Link do nosso ficheiro de navegação
+import { Link } from '@/navigation';
 import { ArrowRight } from 'lucide-react';
 import Image from "next/image";
 import heroImg from "../assets/hero.webp";
+// 2. IMPORTAR O HOOK
+import { useTranslations } from 'next-intl';
 
 export default function Hero() {
+    // 3. INICIALIZAR AS TRADUÇÕES (Secção 'Hero')
+    const t = useTranslations('Hero');
 
     // Função para realizar o scroll suave com duração personalizada
     const smoothScrollTo = (targetId: string, duration: number) => {
@@ -53,17 +58,20 @@ export default function Hero() {
                     priority
                 />
 
-                {/* --- AQUI ESTÁ A MUDANÇA --- */}
-                {/* Overlay com Gradiente: Mais escuro em baixo para o texto laranja sobressair */}
+                {/* Overlay com Gradiente */}
                 <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/40 via-brand-navy/60 to-brand-navy/90 mix-blend-multiply"></div>
             </div>
 
             <div className="relative z-10 text-center text-white px-4 max-w-5xl">
                 <h2 className="text-brand-terracotta font-bold tracking-[0.3em] text-sm md:text-base mb-6 uppercase animate-fade-in-up">
-                    Desde 2022
+                    {/* Texto Traduzido: "Desde 2022" */}
+                    {t('subtitle')}
                 </h2>
                 <h1 className="text-5xl md:text-8xl font-black mb-8 leading-tight uppercase drop-shadow-lg">
-                    O Padel nas <br /> <span className="text-brand-terracotta">Caldas da Rainha</span>
+                    {/* Texto Traduzido: "O Padel nas" */}
+                    {t('title')} <br />
+                    {/* Texto Traduzido: "Caldas da Rainha" */}
+                    <span className="text-brand-terracotta">{t('titleHighlight')}</span>
                 </h1>
 
                 <div className="flex flex-col md:flex-row gap-6 justify-center mt-12">
@@ -71,7 +79,8 @@ export default function Hero() {
                         href="#clube"
                         className="bg-white text-brand-navy px-10 py-4 rounded-full font-bold tracking-widest hover:bg-brand-terracotta hover:text-white transition-all shadow-xl"
                     >
-                        O CLUBE
+                        {/* Texto Traduzido: "O CLUBE" */}
+                        {t('buttons.club')}
                     </Link>
                     <a
                         href="https://go.tieplayer.com/link/ClubePadeldasCaldas"
@@ -79,7 +88,8 @@ export default function Hero() {
                         rel="noopener noreferrer"
                         className="bg-brand-terracotta text-white px-10 py-4 rounded-full font-bold tracking-widest hover:bg-brand-navy border-2 border-brand-terracotta hover:border-brand-navy transition-all shadow-xl"
                     >
-                        RESERVAR AGORA
+                        {/* Texto Traduzido: "RESERVAR AGORA" */}
+                        {t('buttons.book')}
                     </a>
                 </div>
             </div>
@@ -92,7 +102,7 @@ export default function Hero() {
                         smoothScrollTo('servicos', 1000);
                     }}
                     className="cursor-pointer text-white hover:text-brand-terracotta transition-colors duration-500 block focus:outline-none bg-transparent border-none p-0"
-                    aria-label="Ver serviços"
+                    aria-label={t('scrollAria')}
                 >
                     <ArrowRight className="rotate-90 w-8 h-8" />
                 </button>

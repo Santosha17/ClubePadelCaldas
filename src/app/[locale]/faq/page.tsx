@@ -2,36 +2,17 @@
 
 import { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
-
-const faqs = [
-    {
-        question: "Como faço para reservar um campo?",
-        answer: "A forma mais rápida é através da nossa página no TiePlayer. Podes ver a disponibilidade em tempo real e reservar logo. Também podes ligar ou enviar WhatsApp se preferires."
-    },
-    {
-        question: "É preciso ser sócio para jogar?",
-        answer: "Não! O Clube Padel Caldas é aberto a todos. Podes alugar campos ou ter aulas sem ser sócio. No entanto, tornar-te sócio dá-te acesso a preços reduzidos e prioridade na marcação."
-    },
-    {
-        question: "Emprestam raquetes e bolas?",
-        answer: "Sim. Se estás a começar e não tens material, podes alugar raquetes na nossa receção por um valor simbólico. Também vendemos bolas e outros acessórios na nossa loja."
-    },
-    {
-        question: "Têm aulas para iniciantes?",
-        answer: "Claro! A nossa Academia tem turmas para todos os níveis, desde quem nunca pegou numa raquete (Nível 6) até à competição (Nível 1). Podes marcar uma aula experimental para avaliarmos o teu nível."
-    },
-    {
-        question: "Têm estacionamento e balneários?",
-        answer: "Sim, temos estacionamento privativo gratuito mesmo à porta do clube. Dispomos também de balneários masculinos e femininos completos com duches."
-    },
-    {
-        question: "Qual é a política de cancelamento?",
-        answer: "Podes cancelar a tua reserva sem custos até 24 horas antes da hora marcada. Cancelamentos com menos aviso prévio podem estar sujeitos ao pagamento do valor do campo."
-    }
-];
+// 1. Importar o hook de tradução
+import { useTranslations } from 'next-intl';
 
 export default function FAQ() {
-    const [openIndex, setOpenIndex] = useState<number | null>(0); // O primeiro já vem aberto
+    // 2. Inicializar as traduções
+    const t = useTranslations('FAQ');
+    const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+    // 3. Criar um array para iterar com base no número de perguntas no JSON
+    // Assumindo as 6 perguntas padrão
+    const questionIndices = [0, 1, 2, 3, 4, 5];
 
     const toggleFAQ = (index: number) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -41,15 +22,19 @@ export default function FAQ() {
         <section className="py-24 bg-gray-50" id="faqs">
             <div className="container mx-auto px-4 max-w-4xl">
 
-                {/* Cabeçalho */}
+                {/* Cabeçalho Traduzido */}
                 <div className="text-center mb-16">
-                    <span className="text-brand-terracotta font-bold tracking-widest uppercase text-sm">Dúvidas?</span>
-                    <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mt-3">Perguntas Frequentes</h2>
+                    <span className="text-brand-terracotta font-bold tracking-widest uppercase text-sm">
+                        {t('label')}
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-bold text-brand-navy mt-3">
+                        {t('title')}
+                    </h2>
                 </div>
 
-                {/* Lista de FAQs */}
+                {/* Lista de FAQs Dinâmica */}
                 <div className="space-y-4">
-                    {faqs.map((faq, index) => (
+                    {questionIndices.map((index) => (
                         <div
                             key={index}
                             className={`bg-white rounded-2xl border transition-all duration-300 ${
@@ -63,7 +48,7 @@ export default function FAQ() {
                                 className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
                             >
                                 <span className={`font-bold text-lg ${openIndex === index ? 'text-brand-terracotta' : 'text-brand-navy'}`}>
-                                    {faq.question}
+                                    {t(`questions.${index}.q`)}
                                 </span>
                                 <div className={`p-2 rounded-full transition-colors ${openIndex === index ? 'bg-brand-terracotta text-white' : 'bg-gray-100 text-gray-500'}`}>
                                     {openIndex === index ? <Minus size={20} /> : <Plus size={20} />}
@@ -76,7 +61,7 @@ export default function FAQ() {
                                 }`}
                             >
                                 <p className="px-6 pb-6 text-gray-600 leading-relaxed">
-                                    {faq.answer}
+                                    {t(`questions.${index}.a`)}
                                 </p>
                             </div>
                         </div>

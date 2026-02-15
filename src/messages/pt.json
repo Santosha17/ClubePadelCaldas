@@ -1,9 +1,409 @@
 {
-  "Nav": { "home": "Início", "club": "O Clube", "courts": "Campos", "contact": "Contactos" },
-  "Hero": {
-    "title": "A Melhor Experiência de Padel nas Caldas",
-    "subtitle": "Campos premium, ambiente exclusivo e a comunidade mais vibrante da região.",
-    "cta": "Reservar Campo"
+  "Metadata": {
+    "title": "Clube Padel Caldas - Vamos a jogo?",
+    "description": "O Primeiro Clube de Padel das Caldas da Rainha!"
   },
-  "Features": { "title": "O Nosso Clube", "f1": "Campos WPT", "f2": "Aulas", "f3": "Lounge Bar" }
+  "Navbar": {
+    "brandPrefix": "CLUBE PADEL",
+    "brandSuffix": "CALDAS",
+    "links": {
+      "services": "Serviços",
+      "prices": "Preços",
+      "club": "O Clube",
+      "contacts": "Contactos"
+    },
+    "cta": "RESERVAR"
+  },
+  "Hero": {
+    "subtitle": "DESDE 2022",
+    "title": "O Padel nas",
+    "titleHighlight": "Caldas da Rainha",
+    "buttons": {
+      "club": "O CLUBE",
+      "book": "RESERVAR AGORA"
+    },
+    "scrollAria": "Ver serviços"
+  },
+  "Pricing": {
+    "tabs": {
+      "adults": "Adultos",
+      "kids": "Kids",
+      "advanced": "Avançado",
+      "rental": "Aluguer"
+    },
+    "adults": {
+      "title": "Aulas Adultos",
+      "paxLabel": "Número de Pessoas (Pax)",
+      "freqLabel": "Frequência",
+      "freqOptions": {
+        "oneWeek": "1x / Semana (Mensal)",
+        "twoWeek": "2x / Semana (Mensal)",
+        "single": "Aula Avulso",
+        "pack5": "Pack 5 Aulas"
+      }
+    },
+    "kids": {
+      "title": "CPC Kids",
+      "paxLabel": "Número de Crianças",
+      "freqLabel": "Frequência",
+      "freqOptions": {
+        "oneWeek": "1x / Semana",
+        "twoWeek": "2x / Semana"
+      }
+    },
+    "advanced": {
+      "title": "Padel Next Level",
+      "classSizeLabel": "Tamanho da Turma",
+      "people": "Pessoas",
+      "freqLabel": "Frequência",
+      "freqOptions": {
+        "oneWeek": "1x / Semana",
+        "twoWeek": "2x / Semana",
+        "threeWeek": "3x / Semana",
+        "single": "Aula Avulso"
+      }
+    },
+    "rental": {
+      "title": "Aluguer de Campos",
+      "durationLabel": "Duração",
+      "min": "Min",
+      "timeLabel": "Horário",
+      "timeOptions": {
+        "off": "Off Peak (08h-18h)",
+        "peak": "Peak (18h-24h / FDS)"
+      },
+      "typeLabel": "Tipo",
+      "typeOptions": {
+        "court": "Por Campo",
+        "pax": "Por Pessoa"
+      }
+    },
+    "result": {
+      "estimated": "Valor Estimado",
+      "perReservation": "por reserva",
+      "total": "Total",
+      "perClass": "por aula",
+      "perMonthPerson": "/ mês por pessoa",
+      "features": {
+        "coaches": "Treinadores Certificados",
+        "equipment": "Equipamento incluído (se necessário)",
+        "led": "Iluminação LED"
+      }
+    },
+    "cta": {
+      "book": "RESERVAR AGORA",
+      "subscribe": "INSCREVER"
+    }
+  },
+  "Partners": {
+    "title": "Parceiros Oficiais"
+  },
+  "About": {
+    "label": "Sobre Nós",
+    "title": "O primeiro clube das Caldas da Rainha.",
+    "description": "Localizado na Zona Industrial, o Clube Padel Caldas oferece as melhores condições para a prática da modalidade. Com 5 campos indoor e 1 coberto de última geração com vidro panorâmico e relva WPT. A melhor experiência de jogo garantida.",
+    "imageAlt": "Interior do Clube Padel Caldas",
+    "features": {
+      "parking": "Estacionamento Privativo",
+      "courts": "Campos Premium",
+      "classes": "Aulas para todos os níveis",
+      "tournaments": "Organização de Torneios sociais, ligas e clínicas",
+      "community": "Comunidade Ativa"
+    },
+    "cta": "VISITAR O CLUBE"
+  },
+  "Services": {
+    "label": "Serviços",
+    "title": "Tudo para o teu jogo",
+    "cards": {
+      "rent": {
+        "title": "Aluguer de Campos",
+        "description": "Reserva facilmente através do Tieplayer. Temos 6 campos disponíveis com piso de alta qualidade e iluminação LED.",
+        "cta": "Reservar Agora"
+      },
+      "academy": {
+        "title": "Academia CPC",
+        "description": "Queres evoluir? Temos treinadores certificados para aulas individuais, de grupo ou clínicas de aperfeiçoamento.",
+        "cta": "Ver Planos"
+      },
+      "bar": {
+        "title": "Bar & Loja",
+        "description": "Material técnico das melhores marcas e um espaço lounge para relaxar e conviver após as partidas.",
+        "cta": "Visitar"
+      }
+    }
+  },
+  "Stats": {
+    "courts": {
+      "value": "6",
+      "label": "Campos (5+1)"
+    },
+    "lockerRooms": {
+      "value": "M/F",
+      "label": "Balneários"
+    },
+    "academy": {
+      "value": "CPC",
+      "label": "Academia"
+    },
+    "bar": {
+      "value": "Bar",
+      "label": "Zona Social"
+    }
+  },
+  "Testimonials": {
+    "title": "A voz dos nossos atletas",
+    "subtitle": "A comunidade do Clube Padel Caldas não para de crescer. Vê o que dizem sobre nós.",
+    "googleLink": "Ver todas as reviews no Google",
+    "reviews": [
+      {
+        "name": "Marcelo Pasco",
+        "role": "Jogador Social",
+        "content": "Excelente infraestrutura para a prática de Padel campos em excelente condições de utilização. Ambiente familiar e agradável, pode-se conviver ver bons jogos de padel. Equipa técnica 5 estrelas ,pode-se beber uma bebida têm as melhores tostas mistas da região e arredores."
+      },
+      {
+        "name": "Ana Martins",
+        "role": "Aluna",
+        "content": "Comecei a ter aulas há 3 meses e a evolução é notória. Os treinadores são super atenciosos e o ambiente é muito familiar."
+      },
+      {
+        "name": "Pedro Costa",
+        "role": "Jogador Social",
+        "content": "Campos de topo e o bar tem uma vista fantástica para os jogos. O melhor spot para o pós-jogo com a malta."
+      }
+    ]
+  },
+  "FAQ": {
+    "label": "Dúvidas?",
+    "title": "Perguntas Frequentes"
+  },
+  "CTA": {
+    "title": "Vamos a jogo?",
+    "description": "Quer sejas iniciante ou profissional, o Clube Padel Caldas é a tua casa. Junta-te a nós hoje mesmo.",
+    "buttons": {
+      "book": "Reservar Campo Agora",
+      "contact": "Fale Connosco"
+    }
+  },
+  "Footer": {
+    "description": "O clube de referência na região Oeste. Vem jogar, conviver e evoluir o teu padel num ambiente fantástico.",
+    "sections": {
+      "contacts": "Contactos",
+      "social": "Social"
+    },
+    "copyright": "Clube Padel Caldas. Todos os direitos reservados.",
+    "legal": {
+      "anthem": "Hino do Clube",
+      "faq": "FAQ",
+      "terms": "Termos e Condições",
+      "privacy": "Política de Privacidade"
+    }
+  },
+  "WhatsApp": {
+    "label": "Marca já!",
+    "ariaLabel": "Contactar via WhatsApp"
+  },
+
+  "Academy": {
+    "hero": {
+      "label": "CPC Academy",
+      "title": "Escola de Padel",
+      "subtitle": "Evolui o teu jogo com os melhores profissionais da região Oeste. Aulas para todas as idades e níveis."
+    },
+    "benefits": {
+      "methodology": {
+        "title": "Metodologia Comprovada",
+        "description": "Planos de treino adaptados ao teu nível, focados na técnica, tática e posicionamento em campo para uma evolução rápida."
+      },
+      "community": {
+        "title": "Comunidade Vibrante",
+        "description": "Entrar na CPC Academy é fazer parte de uma família. Organização de jogos, torneios internos e eventos sociais regulares."
+      },
+      "everyone": {
+        "title": "Para Todos",
+        "description": "Desde os primeiros passos nas aulas Kids até à alta competição. Temos a turma certa para ti, independentemente da idade."
+      }
+    },
+    "form": {
+      "sidebar": {
+        "title": "Junta-te a nós!",
+        "subtitle": "Preenche o formulário para agendarmos a tua avaliação de nível ou primeira aula.",
+        "item1": "Avaliação Gratuita",
+        "item2": "Horários Flexíveis",
+        "item3": "Material Incluído",
+        "help": "Dúvidas?"
+      },
+      "fields": {
+        "firstName": "Primeiro Nome",
+        "lastName": "Último Nome",
+        "phone": "Telemóvel",
+        "email": "Email",
+        "birthDate": "Data de Nascimento",
+        "level": "O teu Nível",
+        "availability": "Disponibilidade Habitual",
+        "terms": "Declaro que li e aceito os {link} do regulamento do CPC Academy 25/26.",
+        "termsLink": "Termos e Condições"
+      },
+      "placeholders": {
+        "firstName": "Ex: João",
+        "lastName": "Ex: Silva",
+        "phone": "912 345 678",
+        "email": "joao@exemplo.com",
+        "select": "Seleciona uma opção"
+      },
+      "levels": {
+        "none": "Nunca joguei / Menos de 10 vezes",
+        "l5": "Nível 5 (Iniciado)",
+        "l4": "Nível 4 (Intermédio Baixo)",
+        "l3": "Nível 3 (Intermédio)",
+        "l2": "Nível 2 (Avançado)",
+        "l1": "Nível 1 (Competição)",
+        "kids": "Kids (Crianças)"
+      },
+      "submit": "Enviar Inscrição",
+      "alertTerms": "Por favor, aceite os Termos e Condições para continuar."
+    },
+    "team": {
+      "title": "A Nossa Equipa",
+      "subtitle": "Conhece os treinadores disponíveis que te vão ajudar a chegar ao próximo nível.",
+      "levelLabel": "Nível"
+    }
+  },
+  "Contacts": {
+    "hero": {
+      "label": "Fale Connosco",
+      "title": "Estamos à tua espera",
+      "subtitle": "Tens dúvidas sobre aulas, aluguer de campos ou torneios? Entra em contacto com a nossa equipa."
+    },
+    "info": {
+      "title": "Informações",
+      "phone": "Telefone",
+      "phoneSub": "Chamada para rede móvel nacional",
+      "email": "Email",
+      "address": "Morada",
+      "followUs": "Segue-nos"
+    },
+    "schedule": {
+      "title": "Horário",
+      "weekdays": "Segunda a Sexta",
+      "saturdays": "Sábados",
+      "sundays": "Domingos e Feriados"
+    },
+    "form": {
+      "title": "Envia uma mensagem",
+      "subtitle": "Prometemos ser breves na resposta.",
+      "fields": {
+        "name": "Nome",
+        "email": "Email",
+        "subject": "Assunto",
+        "message": "Mensagem"
+      },
+      "placeholders": {
+        "name": "O teu nome",
+        "email": "email@exemplo.com",
+        "subject": "Ex: Marcação de Aula, Dúvida...",
+        "message": "Como podemos ajudar?"
+      },
+      "submit": "Enviar Mensagem",
+      "whatsappPrefix": "*Novo Contacto via Site* 🎾"
+    }
+  },
+
+  "Anthem": {
+    "hero": {
+      "label": "CULTURA",
+      "title": "O Nosso Hino",
+      "subtitle": "A voz e a alma do Clube Padel Caldas. Canta connosco!"
+    },
+    "lyrics": {
+      "strophe1": {
+        "line1": "Dá-me um amorti",
+        "line2": "Desses que pingam na tela",
+        "line3": "Saca uma por três",
+        "line4": "Saca uma por três",
+        "line5": "E rebenta-me com ela"
+      },
+      "strophe2": {
+        "line1": "E rebenta-me com ela",
+        "line2": "Queremos que venças por nós",
+        "line3": "Vou estar aqui para ti",
+        "line4": "Vou estar aqui para ti",
+        "line5": "Até que me falte a voz"
+      },
+      "strophe3": {
+        "line1": "Clube Padel das Caldas",
+        "line2": "Clube do meu coração",
+        "line3": "Dois Zero Dois Zero",
+        "line4": "Dois Zero Dois Zero",
+        "line5": "O ano da fundação"
+      },
+      "outro": "Lo Lo Lo Lo"
+    }
+  },
+  "FAQ": {
+    "label": "Dúvidas?",
+    "title": "Perguntas Frequentes",
+    "questions": [
+      {
+        "q": "Como faço para reservar um campo?",
+        "a": "A forma mais rápida é através da nossa página no TiePlayer. Podes ver a disponibilidade em tempo real e reservar logo. Também podes ligar ou enviar WhatsApp se preferires."
+      },
+      {
+        "q": "É preciso ser sócio para jogar?",
+        "a": "Não! O Clube Padel Caldas é aberto a todos. Podes alugar campos ou ter aulas sem ser sócio. No entanto, tornar-te sócio dá-te acesso a preços reduzidos e prioridade na marcação."
+      },
+      {
+        "q": "Emprestam raquetes e bolas?",
+        "a": "Sim. Se estás a começar e não tens material, podes alugar raquetes na nossa receção por um valor simbólico. Também vendemos bolas e outros acessórios na nossa loja."
+      },
+      {
+        "q": "Têm aulas para iniciantes?",
+        "a": "Claro! A nossa Academia tem turmas para todos os níveis, desde quem nunca pegou numa raquete até à competição. Podes marcar uma aula experimental para avaliarmos o teu nível."
+      },
+      {
+        "q": "Têm estacionamento e balneários?",
+        "a": "Sim, temos estacionamento privativo gratuito mesmo à porta do clube. Dispomos também de balneários masculinos e femininos completos com duches."
+      },
+      {
+        "q": "Qual é a política de cancelamento?",
+        "a": "Podes cancelar a tua reserva sem custos até 24 horas antes da hora marcada. Cancelamentos com menos aviso prévio podem estar sujeitos ao pagamento do valor do campo."
+      }
+    ]
+  },
+  "Privacy": {
+    "hero": {
+      "title": "Política de ",
+      "titleHighlight": "Privacidade",
+      "lastUpdate": "Última atualização:"
+    },
+    "sections": {
+      "collection": {
+        "title": "1. Recolha de Dados",
+        "content": "O Clube Padel Caldas respeita a sua privacidade. Recolhemos apenas os dados estritamente necessários para a prestação dos nossos serviços de reserva e faturação...",
+        "placeholder": "[Aqui deves colocar o texto legal sobre RGPD, como guardam contactos, se usam câmaras de videovigilância no clube, etc.]"
+      },
+      "sharing": {
+        "title": "2. Partilha de Informação",
+        "content": "Não partilhamos os seus dados pessoais com terceiros, exceto quando estritamente necessário para o processamento de reservas (ex: TiePlayer) ou obrigações legais."
+      }
+    }
+  },
+  "Terms": {
+    "hero": {
+      "title": "Termos e ",
+      "titleHighlight": "Condições",
+      "lastUpdate": "Última atualização:"
+    },
+    "sections": {
+      "intro": {
+        "title": "1. Introdução",
+        "content": "Bem-vindo ao Clube Padel Caldas. Ao utilizar os nossos serviços, alugar campos ou participar nas nossas aulas, concorda com os presentes termos e condições...",
+        "placeholder": "[Aqui deves colocar o texto legal fornecido pelo clube sobre regras de utilização, calçado obrigatório, etc.]"
+      },
+      "bookings": {
+        "title": "2. Reservas e Cancelamentos",
+        "content": "As reservas de campos são efetuadas através da plataforma TiePlayer. O cancelamento sem custos deve ser feito com uma antecedência mínima de 24 horas."
+      }
+    }
+  }
 }

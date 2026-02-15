@@ -1,9 +1,410 @@
 {
-  "Nav": { "home": "Home", "club": "The Club", "courts": "Courts", "contact": "Contact" },
-  "Hero": {
-    "title": "The Ultimate Padel Experience in Caldas",
-    "subtitle": "Premium courts, exclusive atmosphere, and the most vibrant community in the region.",
-    "cta": "Book Court"
+  "Metadata": {
+    "title": "Clube Padel Caldas - Shall we play?",
+    "description": "The First Padel Club in Caldas da Rainha!"
   },
-  "Features": { "title": "Our Club", "f1": "WPT Courts", "f2": "Lessons", "f3": "Lounge Bar" }
+  "Navbar": {
+    "brandPrefix": "CLUBE PADEL",
+    "brandSuffix": "CALDAS",
+    "links": {
+      "services": "Services",
+      "prices": "Prices",
+      "club": "The Club",
+      "contacts": "Contacts"
+    },
+    "cta": "BOOK NOW"
+  },
+  "Homepage": {
+    "pricingSection": {
+      "label": "Pricing",
+      "title": "Calculate your plan"
+    }
+  },
+  "Hero": {
+    "subtitle": "SINCE 2022",
+    "title": "Padel in",
+    "titleHighlight": "Caldas da Rainha",
+    "buttons": {
+      "club": "THE CLUB",
+      "book": "BOOK NOW"
+    },
+    "scrollAria": "See services"
+  },
+  "Pricing": {
+    "tabs": {
+      "adults": "Adults",
+      "kids": "Kids",
+      "advanced": "Advanced",
+      "rental": "Rental"
+    },
+    "adults": {
+      "title": "Adult Classes",
+      "paxLabel": "Number of People (Pax)",
+      "freqLabel": "Frequency",
+      "freqOptions": {
+        "oneWeek": "1x / Week (Monthly)",
+        "twoWeek": "2x / Week (Monthly)",
+        "single": "Single Class",
+        "pack5": "5 Class Pack"
+      }
+    },
+    "kids": {
+      "title": "CPC Kids",
+      "paxLabel": "Number of Children",
+      "freqLabel": "Frequency",
+      "freqOptions": {
+        "oneWeek": "1x / Week",
+        "twoWeek": "2x / Week"
+      }
+    },
+    "advanced": {
+      "title": "Padel Next Level",
+      "classSizeLabel": "Class Size",
+      "people": "People",
+      "freqLabel": "Frequency",
+      "freqOptions": {
+        "oneWeek": "1x / Week",
+        "twoWeek": "2x / Week",
+        "threeWeek": "3x / Week",
+        "single": "Single Class"
+      }
+    },
+    "rental": {
+      "title": "Court Rental",
+      "durationLabel": "Duration",
+      "min": "Min",
+      "timeLabel": "Schedule",
+      "timeOptions": {
+        "off": "Off Peak (08h-18h)",
+        "peak": "Peak (18h-24h / Weekends)"
+      },
+      "typeLabel": "Type",
+      "typeOptions": {
+        "court": "Per Court",
+        "pax": "Per Person"
+      }
+    },
+    "result": {
+      "estimated": "Estimated Value",
+      "perReservation": "per reservation",
+      "total": "Total",
+      "perClass": "per class",
+      "perMonthPerson": "/ month per person",
+      "features": {
+        "coaches": "Certified Coaches",
+        "equipment": "Equipment included (if necessary)",
+        "led": "LED Lighting"
+      }
+    },
+    "cta": {
+      "book": "BOOK NOW",
+      "subscribe": "SIGN UP"
+    }
+  },
+  "Partners": {
+    "title": "Official Partners",
+    "altPrefix": "Partner"
+  },
+  "About": {
+    "label": "About Us",
+    "title": "The first club in Caldas da Rainha.",
+    "description": "Located in the Industrial Zone, Clube Padel Caldas offers the best conditions for practicing the sport. With 5 indoor courts and 1 state-of-the-art covered court with panoramic glass and WPT turf. The best playing experience guaranteed.",
+    "imageAlt": "Interior of Clube Padel Caldas",
+    "features": {
+      "parking": "Private Parking",
+      "courts": "Premium Courts",
+      "classes": "Classes for all levels",
+      "tournaments": "Organization of social tournaments, leagues, and clinics",
+      "community": "Active Community"
+    },
+    "cta": "VISIT THE CLUB"
+  },
+  "Services": {
+    "label": "Services",
+    "title": "Everything for your game",
+    "cards": {
+      "rent": {
+        "title": "Court Rental",
+        "description": "Book easily through Tieplayer. We have 6 courts available with high-quality flooring and LED lighting.",
+        "cta": "Book Now"
+      },
+      "academy": {
+        "title": "CPC Academy",
+        "description": "Want to evolve? We have certified coaches for individual, group classes or improvement clinics.",
+        "cta": "See Plans"
+      },
+      "bar": {
+        "title": "Bar & Shop",
+        "description": "Technical material from the best brands and a lounge space to relax and socialize after matches.",
+        "cta": "Visit"
+      }
+    }
+  },
+  "Stats": {
+    "courts": {
+      "value": "6",
+      "label": "Courts (5+1)"
+    },
+    "lockerRooms": {
+      "value": "M/F",
+      "label": "Locker Rooms"
+    },
+    "academy": {
+      "value": "CPC",
+      "label": "Academy"
+    },
+    "bar": {
+      "value": "Bar",
+      "label": "Social Area"
+    }
+  },
+  "Testimonials": {
+    "title": "The voice of our athletes",
+    "subtitle": "The Clube Padel Caldas community keeps growing. See what they say about us.",
+    "googleLink": "See all Google reviews",
+    "reviews": [
+      {
+        "name": "Marcelo Pasco",
+        "role": "Social Player",
+        "content": "Excellent infrastructure for Padel, courts in excellent condition. Family-friendly and pleasant atmosphere, great for watching good padel matches. 5-star technical team, you can grab a drink and they have the best toasted sandwiches in the region and surroundings."
+      },
+      {
+        "name": "Ana Martins",
+        "role": "Student",
+        "content": "I started taking classes 3 months ago and the progress is remarkable. The coaches are super attentive and the environment is very family-oriented."
+      },
+      {
+        "name": "Pedro Costa",
+        "role": "Social Player",
+        "content": "Top-notch courts and the bar has a fantastic view of the games. The best spot for post-game with the crew."
+      }
+    ]
+  },
+  "FAQ": {
+    "label": "Questions?",
+    "title": "Frequently Asked Questions",
+    "questions": [
+      {
+        "q": "How do I book a court?",
+        "a": "The fastest way is through our TiePlayer page. You can see real-time availability and book instantly. You can also call or send a WhatsApp message if you prefer."
+      },
+      {
+        "q": "Is it necessary to be a member to play?",
+        "a": "No! Clube Padel Caldas is open to everyone. You can rent courts or take classes without being a member. However, becoming a member gives you access to reduced prices and priority booking."
+      },
+      {
+        "q": "Do you lend rackets and balls?",
+        "a": "Yes. If you are just starting and don't have gear, you can rent rackets at our reception for a symbolic fee. We also sell balls and other accessories in our shop."
+      },
+      {
+        "q": "Do you have classes for beginners?",
+        "a": "Of course! Our Academy has classes for all levels, from those who have never held a racket to competition level. You can book a trial class so we can assess your level."
+      },
+      {
+        "q": "Do you have parking and locker rooms?",
+        "a": "Yes, we have free private parking right at the club's door. We also have full male and female locker rooms with showers."
+      },
+      {
+        "q": "What is the cancellation policy?",
+        "a": "You can cancel your reservation at no cost up to 24 hours before the scheduled time. Cancellations with less notice may be subject to the payment of the court fee."
+      }
+    ]
+  },
+  "CTA": {
+    "title": "Shall we play?",
+    "description": "Whether you're a beginner or a pro, Clube Padel Caldas is your home. Join us today.",
+    "buttons": {
+      "book": "Book Court Now",
+      "contact": "Contact Us"
+    }
+  },
+  "Footer": {
+    "description": "The reference club in the West region. Come play, socialize, and evolve your padel in a fantastic environment.",
+    "sections": {
+      "contacts": "Contacts",
+      "social": "Social"
+    },
+    "copyright": "Clube Padel Caldas. All rights reserved.",
+    "legal": {
+      "anthem": "Club Anthem",
+      "faq": "FAQ",
+      "terms": "Terms and Conditions",
+      "privacy": "Privacy Policy"
+    }
+  },
+  "WhatsApp": {
+    "label": "Book now!",
+    "ariaLabel": "Contact via WhatsApp"
+  },
+  "Academy": {
+    "hero": {
+      "label": "CPC Academy",
+      "title": "Padel School",
+      "subtitle": "Evolve your game with the best professionals in the West region. Classes for all ages and levels."
+    },
+    "benefits": {
+      "methodology": {
+        "title": "Proven Methodology",
+        "description": "Training plans adapted to your level, focusing on technique, tactics, and court positioning for rapid evolution."
+      },
+      "community": {
+        "title": "Vibrant Community",
+        "description": "Joining the CPC Academy means becoming part of a family. Organization of matches, internal tournaments, and regular social events."
+      },
+      "everyone": {
+        "title": "For Everyone",
+        "description": "From first steps in Kids classes to high competition. We have the right class for you, regardless of age."
+      }
+    },
+    "form": {
+      "sidebar": {
+        "title": "Join us!",
+        "subtitle": "Fill out the form to schedule your level assessment or first class.",
+        "item1": "Free Assessment",
+        "item2": "Flexible Schedules",
+        "item3": "Gear Included",
+        "help": "Questions?"
+      },
+      "fields": {
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "phone": "Phone Number",
+        "email": "Email",
+        "birthDate": "Date of Birth",
+        "level": "Your Level",
+        "availability": "Usual Availability",
+        "terms": "I declare that I have read and accept the {link} of the CPC Academy 25/26 regulation.",
+        "termsLink": "Terms and Conditions"
+      },
+      "placeholders": {
+        "firstName": "Ex: John",
+        "lastName": "Ex: Smith",
+        "phone": "912 345 678",
+        "email": "john@example.com",
+        "select": "Select an option"
+      },
+      "levels": {
+        "none": "Never played / Less than 10 times",
+        "l5": "Level 5 (Beginner)",
+        "l4": "Level 4 (Low Intermediate)",
+        "l3": "Level 3 (Intermediate)",
+        "l2": "Level 2 (Advanced)",
+        "l1": "Level 1 (Competition)",
+        "kids": "Kids (Children)"
+      },
+      "submit": "Submit Registration",
+      "alertTerms": "Please accept the Terms and Conditions to continue."
+    },
+    "team": {
+      "title": "Our Team",
+      "subtitle": "Meet the available coaches who will help you reach the next level.",
+      "levelLabel": "Level"
+    }
+  },
+  "Contacts": {
+    "hero": {
+      "label": "Contact Us",
+      "title": "We are waiting for you",
+      "subtitle": "Have questions about classes, court rentals, or tournaments? Get in touch with our team."
+    },
+    "info": {
+      "title": "Information",
+      "phone": "Phone",
+      "phoneSub": "Call to national mobile network",
+      "email": "Email",
+      "address": "Address",
+      "followUs": "Follow Us"
+    },
+    "schedule": {
+      "title": "Hours",
+      "weekdays": "Monday to Friday",
+      "saturdays": "Saturdays",
+      "sundays": "Sundays and Holidays"
+    },
+    "form": {
+      "title": "Send a message",
+      "subtitle": "We promise to respond promptly.",
+      "fields": {
+        "name": "Name",
+        "email": "Email",
+        "subject": "Subject",
+        "message": "Message"
+      },
+      "placeholders": {
+        "name": "Your name",
+        "email": "email@example.com",
+        "subject": "Ex: Class Booking, Question...",
+        "message": "How can we help?"
+      },
+      "submit": "Send Message",
+      "whatsappPrefix": "*New Website Contact* 🎾"
+    }
+  },
+  "Anthem": {
+    "hero": {
+      "label": "CULTURE",
+      "title": "Our Anthem",
+      "subtitle": "The voice and soul of Clube Padel Caldas. Sing with us!"
+    },
+    "lyrics": {
+      "strophe1": {
+        "line1": "Give me a drop shot",
+        "line2": "The ones that die on the fence",
+        "line3": "Hit one out by three",
+        "line4": "Hit one out by three",
+        "line5": "And smash it down"
+      },
+      "strophe2": {
+        "line1": "And smash it down",
+        "line2": "We want you to win for us",
+        "line3": "I'll be here for you",
+        "line4": "I'll be here for you",
+        "line5": "Until my voice is gone"
+      },
+      "strophe3": {
+        "line1": "Clube Padel das Caldas",
+        "line2": "Club of my heart",
+        "line3": "Two Zero Two Zero",
+        "line4": "Two Zero Two Zero",
+        "line5": "The year of foundation"
+      },
+      "outro": "Lo Lo Lo Lo"
+    }
+  },
+  "Privacy": {
+    "hero": {
+      "title": "Privacy ",
+      "titleHighlight": "Policy",
+      "lastUpdate": "Last update:"
+    },
+    "sections": {
+      "collection": {
+        "title": "1. Data Collection",
+        "content": "Clube Padel Caldas respects your privacy. We only collect the data strictly necessary for providing our booking and billing services...",
+        "placeholder": "[Here you should place the legal text about GDPR, how you store contacts, if you use video surveillance at the club, etc.]"
+      },
+      "sharing": {
+        "title": "2. Information Sharing",
+        "content": "We do not share your personal data with third parties, except when strictly necessary for booking processing (e.g., TiePlayer) or legal obligations."
+      }
+    }
+  },
+  "Terms": {
+    "hero": {
+      "title": "Terms and ",
+      "titleHighlight": "Conditions",
+      "lastUpdate": "Last update:"
+    },
+    "sections": {
+      "intro": {
+        "title": "1. Introduction",
+        "content": "Welcome to Clube Padel Caldas. By using our services, renting courts, or participating in our classes, you agree to these terms and conditions...",
+        "placeholder": "[Here you should place the legal text provided by the club regarding rules of use, mandatory footwear, etc.]"
+      },
+      "bookings": {
+        "title": "2. Bookings and Cancellations",
+        "content": "Court bookings are made through the TiePlayer platform. Cancellation without costs must be made at least 24 hours in advance."
+      }
+    }
+  }
 }

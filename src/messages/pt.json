@@ -14,6 +14,12 @@
     },
     "cta": "RESERVAR"
   },
+  "Homepage": {
+    "pricingSection": {
+      "label": "Preçário",
+      "title": "Calcula o teu plano"
+    }
+  },
   "Hero": {
     "subtitle": "DESDE 2022",
     "title": "O Padel nas",
@@ -96,7 +102,8 @@
     }
   },
   "Partners": {
-    "title": "Parceiros Oficiais"
+    "title": "Parceiros Oficiais",
+    "altPrefix": "Parceiro"
   },
   "About": {
     "label": "Sobre Nós",
@@ -175,7 +182,33 @@
   },
   "FAQ": {
     "label": "Dúvidas?",
-    "title": "Perguntas Frequentes"
+    "title": "Perguntas Frequentes",
+    "questions": [
+      {
+        "q": "Como faço para reservar um campo?",
+        "a": "A forma mais rápida é através da nossa página no TiePlayer. Podes ver a disponibilidade em tempo real e reservar logo. Também podes ligar ou enviar WhatsApp se preferires."
+      },
+      {
+        "q": "É preciso ser sócio para jogar?",
+        "a": "Não! O Clube Padel Caldas é aberto a todos. Podes alugar campos ou ter aulas sem ser sócio. No entanto, tornar-te sócio dá-te acesso a preços reduzidos e prioridade na marcação."
+      },
+      {
+        "q": "Emprestam raquetes e bolas?",
+        "a": "Sim. Se estás a começar e não tens material, podes alugar raquetes na nossa receção por um valor simbólico. Também vendemos bolas e outros acessórios na nossa loja."
+      },
+      {
+        "q": "Têm aulas para iniciantes?",
+        "a": "Claro! A nossa Academia tem turmas para todos os níveis, desde quem nunca pegou numa raquete até à competição. Podes marcar uma aula experimental para avaliarmos o teu nível."
+      },
+      {
+        "q": "Têm estacionamento e balneários?",
+        "a": "Sim, temos estacionamento privativo gratuito mesmo à porta do clube. Dispomos também de balneários masculinos e femininos completos com duches."
+      },
+      {
+        "q": "Qual é a política de cancelamento?",
+        "a": "Podes cancelar a tua reserva sem custos até 24 horas antes da hora marcada. Cancelamentos com menos aviso prévio podem estar sujeitos ao pagamento do valor do campo."
+      }
+    ]
   },
   "CTA": {
     "title": "Vamos a jogo?",
@@ -203,7 +236,6 @@
     "label": "Marca já!",
     "ariaLabel": "Contactar via WhatsApp"
   },
-
   "Academy": {
     "hero": {
       "label": "CPC Academy",
@@ -308,7 +340,6 @@
       "whatsappPrefix": "*Novo Contacto via Site* 🎾"
     }
   },
-
   "Anthem": {
     "hero": {
       "label": "CULTURA",
@@ -339,36 +370,6 @@
       },
       "outro": "Lo Lo Lo Lo"
     }
-  },
-  "FAQ": {
-    "label": "Dúvidas?",
-    "title": "Perguntas Frequentes",
-    "questions": [
-      {
-        "q": "Como faço para reservar um campo?",
-        "a": "A forma mais rápida é através da nossa página no TiePlayer. Podes ver a disponibilidade em tempo real e reservar logo. Também podes ligar ou enviar WhatsApp se preferires."
-      },
-      {
-        "q": "É preciso ser sócio para jogar?",
-        "a": "Não! O Clube Padel Caldas é aberto a todos. Podes alugar campos ou ter aulas sem ser sócio. No entanto, tornar-te sócio dá-te acesso a preços reduzidos e prioridade na marcação."
-      },
-      {
-        "q": "Emprestam raquetes e bolas?",
-        "a": "Sim. Se estás a começar e não tens material, podes alugar raquetes na nossa receção por um valor simbólico. Também vendemos bolas e outros acessórios na nossa loja."
-      },
-      {
-        "q": "Têm aulas para iniciantes?",
-        "a": "Claro! A nossa Academia tem turmas para todos os níveis, desde quem nunca pegou numa raquete até à competição. Podes marcar uma aula experimental para avaliarmos o teu nível."
-      },
-      {
-        "q": "Têm estacionamento e balneários?",
-        "a": "Sim, temos estacionamento privativo gratuito mesmo à porta do clube. Dispomos também de balneários masculinos e femininos completos com duches."
-      },
-      {
-        "q": "Qual é a política de cancelamento?",
-        "a": "Podes cancelar a tua reserva sem custos até 24 horas antes da hora marcada. Cancelamentos com menos aviso prévio podem estar sujeitos ao pagamento do valor do campo."
-      }
-    ]
   },
   "Privacy": {
     "hero": {

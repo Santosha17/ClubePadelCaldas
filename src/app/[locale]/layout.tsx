@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "../globals.css";
 
@@ -6,9 +5,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
 
-// 1. IMPORTS DO NEXT-INTL
+// 1. IMPORTS DO NEXT-INTL E METADATA
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
+import type { Metadata } from "next";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -20,44 +20,65 @@ const geistMono = Geist_Mono({
     subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-    title: "Clube Padel Caldas - Vamos a jogo?",
-    description: "O Primeiro Clube de Padel das Caldas da Rainha!",
-};
+// 2. FUNÇÃO DINÂMICA DE METADATA (SEO)
+export async function generateMetadata({
+                                           params
+                                       }: {
+    params: Promise<{ locale: string }>
+}): Promise<Metadata> {
+    const { locale } = await params;
+    const isPt = locale === 'pt';
 
-// 2. DEFINIÇÃO DA FUNÇÃO ASYNC E PARAMS
+    return {
+        title: isPt
+            ? "Clube Padel Caldas - Vamos a jogo?"
+            : "Clube Padel Caldas - Ready to play?",
+        description: isPt
+            ? "O Primeiro Clube de Padel das Caldas da Rainha! 6 campos premium, academia e zona social."
+            : "The first Padel Club in Caldas da Rainha! 6 premium courts, academy, and social area.",
+        keywords: ["Padel", "Caldas da Rainha", "Clube Padel Caldas", "Aluguer Padel"],
+        openGraph: {
+            title: "Clube Padel Caldas",
+            description: isPt ? "O Padel nas Caldas da Rainha!" : "Padel in Caldas da Rainha!",
+            url: `https://clubepadeldascaldas.vercel.app/${locale}`,
+            siteName: "Clube Padel Caldas",
+            images: [
+                {
+                    url: "/og-image.jpg", // Certifica-te que esta imagem existe na pasta /public
+                    width: 1200,
+                    height: 630,
+                    alt: "Clube Padel Caldas",
+                },
+            ],
+            locale: isPt ? "pt_PT" : "en_US",
+            type: "website",
+        },
+    };
+}
+
+// 3. LAYOUT PRINCIPAL
 export default async function LocaleLayout({
                                                children,
                                                params
                                            }: {
     children: React.ReactNode;
-    params: Promise<{ locale: string }>; // Next.js 15 obriga a que params seja Promise
+    params: Promise<{ locale: string }>;
 }) {
-    // 3. Obter o locale (pt ou en)
     const { locale } = await params;
-
-    // 4. Carregar as traduções do servidor (os ficheiros json em /messages)
     const messages = await getMessages();
 
     return (
-        // 5. O HTML Lang agora é dinâmico
-        <html lang={locale}>
+        <html lang={locale} className="scroll-smooth">
         <body
             className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
         >
-        {/* 6. Provider para as traduções funcionarem nos componentes (Client Components) */}
         <NextIntlClientProvider messages={messages}>
-
             <Navbar />
-
             <main className="flex-grow">
                 {children}
             </main>
-
             <Footer />
-
             {/* <WhatsAppButton /> */}
-
         </NextIntlClientProvider>
         </body>
         </html>

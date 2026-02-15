@@ -6,10 +6,8 @@ import { useTranslations } from 'next-intl';
 import { Menu, X } from 'lucide-react';
 import Image from 'next/image';
 import logoImg from '@/assets/CPC_LogoVector_RGB_1024x724.png';
-import LanguageSwitcher from './LanguageSwitcher'; // Importar o novo componente
+import LanguageSwitcher from './LanguageSwitcher';
 
-// Como estás na Vercel, podes remover o runtime='edge' se preferires,
-// mas mantê-lo não causa problemas.
 export const runtime = 'edge';
 
 export default function Navbar() {
@@ -45,15 +43,17 @@ export default function Navbar() {
         <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${navClasses}`}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center relative h-20">
 
-                {/* LOGO E NOME */}
-                <Link href="/" className="flex items-center gap-3 z-50 hover:opacity-90 transition-opacity group flex-shrink-0">
-                    <div className={`relative w-16 h-10 md:w-24 md:h-16 transition-all duration-500 ${logoClasses}`}>
-                        <Image src={logoImg} alt="Logo Clube Padel Caldas" fill className="object-contain" priority />
-                    </div>
-                    <div className={`font-bold text-lg md:text-xl tracking-wider leading-tight transition-colors duration-500 ${textClasses}`}>
-                        {t('brandPrefix')} <span className={isTransparent ? 'text-white' : 'text-brand-terracotta'}>{t('brandSuffix')}</span>
-                    </div>
-                </Link>
+                {/* LOGO E NOME - flex-1 garante que ocupa o espaço disponível e ml-0 evita colagens */}
+                <div className="flex-1 flex items-center min-w-0">
+                    <Link href="/" className="flex items-center gap-2 md:gap-3 z-50 hover:opacity-90 transition-opacity group flex-shrink-0">
+                        <div className={`relative w-12 h-8 md:w-24 md:h-16 transition-all duration-500 ${logoClasses}`}>
+                            <Image src={logoImg} alt="Logo Clube Padel Caldas" fill className="object-contain" priority />
+                        </div>
+                        <div className={`font-bold text-sm md:text-xl tracking-wider leading-tight transition-colors duration-500 truncate ${textClasses}`}>
+                            {t('brandPrefix')} <span className={isTransparent ? 'text-white' : 'text-brand-terracotta'}>{t('brandSuffix')}</span>
+                        </div>
+                    </Link>
+                </div>
 
                 {/* MENU DESKTOP - CENTRALIZADO */}
                 <div className={`hidden md:flex items-center gap-8 text-sm font-bold tracking-widest uppercase transition-colors duration-500 md:absolute md:left-1/2 md:-translate-x-1/2 ${textClasses}`}>
@@ -63,10 +63,9 @@ export default function Navbar() {
                     <Link href="/contactos">{t('links.contacts')}</Link>
                 </div>
 
-                {/* LADO DIREITO: SWITCHER + CTA */}
+                {/* LADO DIREITO DESKTOP */}
                 <div className="hidden md:flex items-center z-50 flex-shrink-0">
                     <LanguageSwitcher isTransparent={isTransparent} />
-
                     <a
                         href="https://go.tieplayer.com/link/ClubePadeldasCaldas"
                         target="_blank"
@@ -81,8 +80,8 @@ export default function Navbar() {
                     </a>
                 </div>
 
-                {/* MOBILE TOGGLE */}
-                <div className="flex items-center gap-4 md:hidden z-50">
+                {/* LADO DIREITO MOBILE - ml-4 garante o afastamento do nome do clube */}
+                <div className="flex items-center gap-3 sm:gap-6 md:hidden z-50 flex-shrink-0 ml-4">
                     <LanguageSwitcher isTransparent={isTransparent} />
                     <button
                         className={`transition-colors duration-500 ${mobileMenuOpen ? 'text-brand-navy' : textClasses}`}

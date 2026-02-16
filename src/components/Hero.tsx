@@ -9,53 +9,42 @@ import { useTranslations } from 'next-intl';
 export default function Hero() {
     const t = useTranslations('Hero');
 
-    const smoothScrollTo = (targetId: string, duration: number) => {
-        const target = document.getElementById(targetId);
+    // --- NOVA FUNÇÃO DE SCROLL (Mais leve e nativa) ---
+    const scrollToServices = (e: React.MouseEvent) => {
+        e.preventDefault();
+
+        const target = document.getElementById('servicos');
         if (!target) return;
 
-        const startPosition = window.scrollY;
-        const targetPosition = target.getBoundingClientRect().top + window.scrollY - 100;
-        const distance = targetPosition - startPosition;
-        let startTime: number | null = null;
+        // Calculamos a posição manualmente apenas para garantir o offset do Header (-100px)
+        const headerOffset = 100;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.scrollY - headerOffset;
 
-        function animation(currentTime: number) {
-            if (startTime === null) startTime = currentTime;
-            const timeElapsed = currentTime - startTime;
-            const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-            window.scrollTo(0, run);
-            if (timeElapsed < duration) requestAnimationFrame(animation);
-        }
-
-        function easeInOutQuad(t: number, b: number, c: number, d: number) {
-            t /= d / 2;
-            if (t < 1) return c / 2 * t * t + b;
-            t--;
-            return -c / 2 * (t * (t - 2) - 1) + b;
-        }
-
-        requestAnimationFrame(animation);
+        // Usamos a API nativa do browser. É muito mais suave (GPU accelerated).
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
     };
 
     return (
         <section className="relative h-screen flex items-center justify-center overflow-hidden">
-            {/* Imagem de Fundo */}
+            {/* Imagem de Fundo Otimizada */}
             <div className="absolute inset-0 z-0">
                 <Image
                     src={hero}
                     alt="Hero image"
                     className="object-cover"
-                    // 1. Dizemos que em telemóvel ocupa o ecra todo
                     sizes="100vw"
-                    // 2. Prioridade máxima (Obrigatório para LCP)
                     priority={true}
+                    // @ts-ignore
+                    fetchPriority="high" // Garante prioridade máxima
                     loading="eager"
-                    // 3. AGRESSIVO: Reduzir qualidade para 50.
-                    // O overlay escuro esconde as imperfeições e o ficheiro fica metade do tamanho.
                     quality={50}
                     placeholder="blur"
                     fill
                 />
-                {/* O teu overlay já ajuda a disfarçar qualquer perda de qualidade */}
                 <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/40 via-brand-navy/60 to-brand-navy/90 mix-blend-multiply"></div>
             </div>
 
@@ -86,12 +75,10 @@ export default function Hero() {
                 </div>
             </div>
 
+            {/* SETA DE SCROLL */}
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce z-20">
                 <button
-                    onClick={(e) => {
-                        e.preventDefault();
-                        smoothScrollTo('servicos', 1000);
-                    }}
+                    onClick={scrollToServices}
                     className="cursor-pointer text-white hover:text-brand-terracotta transition-colors duration-500 block focus:outline-none bg-transparent border-none p-0"
                     aria-label={t('scrollAria')}
                 >

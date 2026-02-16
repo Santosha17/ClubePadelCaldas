@@ -1,6 +1,6 @@
 'use client';
 
-import { Link } from '@/navigation';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Trophy } from 'lucide-react';
 
@@ -16,7 +16,13 @@ export default function NotFound() {
                 <h1 className="text-7xl font-black text-white mb-4">404</h1>
                 <p className="text-xl text-white font-bold mb-4 uppercase">Bola fora de campo!</p>
                 <p className="text-gray-400 mb-10">A página que procuras não existe. Vamos voltar ao jogo?</p>
-                <Link href="/public" className="bg-brand-terracotta text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-brand-navy transition-all">
+
+                {/* 2. CORREÇÃO: href="/" aponta para a homepage.
+                   O next-intl tratará de adicionar o /pt ou /en automaticamente */}
+                <Link
+                    href="/"
+                    className="inline-block bg-brand-terracotta text-white px-10 py-4 rounded-full font-bold hover:bg-white hover:text-brand-navy transition-all"
+                >
                     VOLTAR AO INÍCIO
                 </Link>
             </motion.div>

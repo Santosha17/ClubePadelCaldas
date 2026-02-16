@@ -86,9 +86,6 @@ export default function Footer() {
                 </div>
 
                 <div className="flex flex-wrap justify-center gap-6 font-medium">
-                    <Link href="/hino" className="hover:text-brand-terracotta transition-colors">
-                        {t('legal.anthem')}
-                    </Link>
                     <Link href="/faq" className="hover:text-brand-terracotta transition-colors">
                         {t('legal.faq')}
                     </Link>

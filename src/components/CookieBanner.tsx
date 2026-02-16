@@ -11,24 +11,32 @@ export default function CookieBanner() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        // Verifica se o utilizador já tomou uma decisão
-        const consent = localStorage.getItem('cookieConsent');
-        if (!consent) {
-            // Pequeno delay para não aparecer logo que o site carrega (melhor UX)
+        // 1. Verificar se já existe decisão guardada no navegador
+        const savedConsent = localStorage.getItem('cookieConsent');
+
+        // 2. Se NÃO houver decisão, mostramos o banner após 1 segundo
+        if (!savedConsent) {
             const timer = setTimeout(() => setIsVisible(true), 1000);
             return () => clearTimeout(timer);
         }
     }, []);
 
-    const handleAccept = () => {
-        localStorage.setItem('cookieConsent', 'accepted');
-        setIsVisible(false);
-        // Aqui podes adicionar lógica para ativar Google Analytics, Pixel, etc.
-    };
+    const setConsent = (decision: 'accepted' | 'declined') => {
+        // A. Guardar no Local Storage (para a UI saber que já decidimos)
+        localStorage.setItem('cookieConsent', decision);
 
-    const handleDecline = () => {
-        localStorage.setItem('cookieConsent', 'declined');
+        // B. Guardar num Cookie REAL (para o servidor/analytics saberem)
+        // Validade: 1 ano (31536000 segundos)
+        document.cookie = `cookieConsent=${decision}; path=/; max-age=31536000; SameSite=Lax`;
+
+        // C. Esconder o banner
         setIsVisible(false);
+
+        // Opcional: Se aceitou, pode ativar o Google Analytics aqui
+        if (decision === 'accepted') {
+            console.log("Cookies aceites! Ativando analytics...");
+            // window.gtag('consent', 'update', ...);
+        }
     };
 
     return (
@@ -38,12 +46,11 @@ export default function CookieBanner() {
                     initial={{ y: 100, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
                     exit={{ y: 100, opacity: 0 }}
-                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    transition={{ duration: 0.5 }}
                     className="fixed bottom-0 left-0 right-0 z-[9999] p-4 md:p-6"
                 >
                     <div className="max-w-7xl mx-auto bg-brand-navy text-white rounded-2xl shadow-2xl border border-white/10 p-6 md:flex md:items-center md:justify-between gap-6 backdrop-blur-xl bg-opacity-95">
 
-                        {/* Texto e Ícone */}
                         <div className="flex gap-4 mb-6 md:mb-0">
                             <div className="shrink-0 w-12 h-12 bg-brand-terracotta/20 rounded-full flex items-center justify-center text-brand-terracotta">
                                 <Cookie size={24} />
@@ -59,29 +66,20 @@ export default function CookieBanner() {
                             </div>
                         </div>
 
-                        {/* Botões */}
                         <div className="flex flex-col sm:flex-row gap-3 shrink-0">
                             <button
-                                onClick={handleDecline}
+                                onClick={() => setConsent('declined')}
                                 className="px-6 py-3 rounded-xl border border-white/20 hover:bg-white/10 text-sm font-bold transition-colors"
                             >
                                 {t('decline')}
                             </button>
                             <button
-                                onClick={handleAccept}
-                                className="px-6 py-3 rounded-xl bg-brand-terracotta hover:bg-white hover:text-brand-navy text-white text-sm font-bold shadow-lg transition-all transform hover:-translate-y-1"
+                                onClick={() => setConsent('accepted')}
+                                className="px-6 py-3 rounded-xl bg-brand-terracotta hover:bg-white hover:text-brand-navy text-white text-sm font-bold shadow-lg transition-all"
                             >
                                 {t('accept')}
                             </button>
                         </div>
-
-                        {/* Botão Fechar (Canto) */}
-                        <button
-                            onClick={handleDecline}
-                            className="absolute top-4 right-4 text-gray-400 hover:text-white md:hidden"
-                        >
-                            <X size={20} />
-                        </button>
                     </div>
                 </motion.div>
             )}

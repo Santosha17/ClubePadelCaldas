@@ -51,11 +51,28 @@ export default function Navbar() {
                 </div>
 
                 {/* COLUNA 2: MENU CENTRAL (Desktop) */}
-                <div className={`hidden md:flex justify-center items-center gap-4 lg:gap-8 text-[13px] lg:text-sm font-bold tracking-widest uppercase transition-colors ${textClasses}`}>
-                    <Link href="/#servicos" className="hover:opacity-75 whitespace-nowrap">{t('links.services')}</Link>
-                    <Link href="/#precos" className="hover:opacity-75 whitespace-nowrap">{t('links.prices')}</Link>
-                    <Link href="/#clube" className="hover:opacity-75 whitespace-nowrap">{t('links.club')}</Link>
-                    <Link href="/contactos" className="hover:opacity-75 whitespace-nowrap">{t('links.contacts')}</Link>
+                <div className={`hidden md:flex justify-center items-center gap-4 lg:gap-8 text-[13px] lg:text-sm font-bold tracking-widest uppercase transition-colors`}>
+
+                    {/* Link: Serviços */}
+                    <Link href="/#servicos" className={`transition-colors duration-300 hover:text-brand-terracotta whitespace-nowrap ${textClasses}`}>
+                        {t('links.services')}
+                    </Link>
+
+                    {/* Link: Preços */}
+                    <Link href="/#precos" className={`transition-colors duration-300 hover:text-brand-terracotta whitespace-nowrap ${textClasses}`}>
+                        {t('links.prices')}
+                    </Link>
+
+                    {/* Link: Clube */}
+                    <Link href="/#clube" className={`transition-colors duration-300 hover:text-brand-terracotta whitespace-nowrap ${textClasses}`}>
+                        {t('links.club')}
+                    </Link>
+
+                    {/* Link: Contactos */}
+                    <Link href="/contactos" className={`transition-colors duration-300 hover:text-brand-terracotta whitespace-nowrap ${textClasses}`}>
+                        {t('links.contacts')}
+                    </Link>
+
                 </div>
 
                 {/* COLUNA 3: CONTROLES (Switcher + CTA + Toggle) */}

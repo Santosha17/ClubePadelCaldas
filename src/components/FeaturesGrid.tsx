@@ -1,14 +1,45 @@
 'use client';
 
+import { useState, useRef } from 'react';
 import { Link } from '@/navigation';
 import { Trophy, Dumbbell, Beer, ArrowRight } from 'lucide-react';
 import { useTranslations } from 'next-intl';
-import { motion, Variants } from 'framer-motion';
+import { motion, Variants, AnimatePresence } from 'framer-motion';
 
 export default function FeaturesGrid() {
     const t = useTranslations('Services');
 
-    // Definimos as variantes com o tipo 'Variants' para resolver os erros de TypeScript (TS2322)
+    // --- LÓGICA DO EASTER EGG (BAR) ---
+    const [isDrunk, setIsDrunk] = useState(false);
+    const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+    const triggerDrunkenStory = () => {
+        // LÓGICA DE SOM ADICIONADA AQUI
+        // Só toca o som se ainda não estiver "bêbado" (para não fazer spam de som)
+        if (!isDrunk) {
+            try {
+                const audio = new Audio('/sounds/beer.mp3');
+                audio.volume = 0.5; // 50% do volume para não assustar ninguém
+                audio.play().catch((e) => console.log("Áudio bloqueado pelo browser:", e));
+            } catch (error) {
+                console.error("Erro ao tocar som:", error);
+            }
+        }
+
+        if (isDrunk) {
+            if (timerRef.current) clearTimeout(timerRef.current);
+        } else {
+            setIsDrunk(true);
+        }
+
+        // Volta ao normal após 10 segundos
+        timerRef.current = setTimeout(() => {
+            setIsDrunk(false);
+            timerRef.current = null;
+        }, 10000);
+    };
+
+    // --- VARIANTES DE ANIMAÇÃO GERAL ---
     const containerVariants: Variants = {
         hidden: { opacity: 0 },
         visible: {
@@ -100,26 +131,107 @@ export default function FeaturesGrid() {
                         </Link>
                     </motion.div>
 
-                    {/* Card 3: Bar & Loja */}
-                    <motion.div variants={itemVariants}>
-                        <Link
-                            href="/contactos"
-                            className="bg-white p-10 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 group flex flex-col relative overflow-hidden h-full"
+                    {/* Card 3: Bar & Loja (COM ÁUDIO + BOLHAS) */}
+                    <motion.div
+                        variants={itemVariants}
+                        className={`bg-white p-10 rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-300 border border-gray-100 group flex flex-col relative overflow-hidden h-full ${
+                            isDrunk ? 'border-brand-terracotta/50 ring-4 ring-brand-terracotta/20 scale-105 z-20' : ''
+                        }`}
+                        animate={isDrunk ? {
+                            rotate: [0, -2, 2, -1, 1, 0],
+                            transition: { duration: 4, repeat: Infinity, ease: "easeInOut" }
+                        } : {}}
+                    >
+                        {/* BOLHAS E FUNDO LÍQUIDO */}
+                        <AnimatePresence>
+                            {isDrunk && (
+                                <>
+                                    <motion.div
+                                        initial={{ height: "0%" }}
+                                        animate={{ height: "100%" }}
+                                        exit={{ height: "0%" }}
+                                        transition={{ duration: 2, ease: "easeInOut" }}
+                                        className="absolute bottom-0 left-0 w-full bg-gradient-to-t from-yellow-400/20 to-transparent pointer-events-none z-0"
+                                    />
+                                    {[...Array(10)].map((_, i) => (
+                                        <motion.div
+                                            key={i}
+                                            initial={{ bottom: -20, left: `${Math.random() * 100}%`, opacity: 0 }}
+                                            animate={{
+                                                bottom: "120%",
+                                                opacity: [0, 1, 0],
+                                                x: Math.random() * 40 - 20
+                                            }}
+                                            transition={{
+                                                duration: 2 + Math.random() * 2,
+                                                repeat: Infinity,
+                                                delay: Math.random() * 2,
+                                                ease: "linear"
+                                            }}
+                                            className="absolute w-2 h-2 bg-yellow-500/40 rounded-full z-0 pointer-events-none"
+                                        />
+                                    ))}
+                                </>
+                            )}
+                        </AnimatePresence>
+
+                        {/* Ícone Trigger (Botão) */}
+                        <button
+                            onClick={triggerDrunkenStory}
+                            className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-all duration-300 z-10 cursor-pointer ${
+                                isDrunk
+                                    ? 'bg-brand-terracotta text-white scale-125 rotate-12 shadow-xl'
+                                    : 'bg-brand-navy/5 text-brand-navy group-hover:bg-brand-terracotta group-hover:text-white'
+                            }`}
                         >
-                            <div className="w-16 h-16 bg-brand-navy/5 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-brand-terracotta transition-colors">
-                                <Beer className="text-brand-navy group-hover:text-white w-8 h-8 transition-colors" />
-                            </div>
-                            <h3 className="text-2xl font-bold text-brand-navy mb-4 flex items-center gap-2">
-                                {t('cards.bar.title')}
-                                <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-brand-terracotta" />
-                            </h3>
-                            <p className="text-gray-600 leading-relaxed mb-4">
-                                {t('cards.bar.description')}
-                            </p>
-                            <span className="text-brand-terracotta font-bold text-sm uppercase tracking-wider mt-auto">
-                                {t('cards.bar.cta')} &rarr;
-                            </span>
-                        </Link>
+                            <Beer className={`w-8 h-8 transition-colors ${isDrunk ? 'animate-bounce' : ''}`} />
+                        </button>
+
+                        <div className="flex-grow z-10 flex flex-col relative">
+                            <AnimatePresence mode="wait">
+                                {!isDrunk ? (
+                                    <motion.div
+                                        key="normal"
+                                        initial={{ opacity: 0 }}
+                                        animate={{ opacity: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        className="flex flex-col h-full"
+                                    >
+                                        <h3 className="text-2xl font-bold text-brand-navy mb-4 flex items-center gap-2">
+                                            {t('cards.bar.title')}
+                                            <ArrowRight className="w-5 h-5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-brand-terracotta" />
+                                        </h3>
+                                        <p className="text-gray-600 leading-relaxed mb-4">
+                                            {t('cards.bar.description')}
+                                        </p>
+                                        <Link href="/contactos" className="text-brand-terracotta font-bold text-sm uppercase tracking-wider mt-auto inline-block">
+                                            {t('cards.bar.cta')} &rarr;
+                                        </Link>
+                                    </motion.div>
+                                ) : (
+                                    <motion.div
+                                        key="drunk"
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        animate={{ opacity: 1, scale: 1 }}
+                                        exit={{ opacity: 0 }}
+                                        className="flex flex-col h-full"
+                                    >
+                                        <h3 className="text-xl font-black uppercase tracking-wider text-brand-terracotta mb-2 flex items-center gap-2">
+                                            Hic! Segredo... 🥴
+                                        </h3>
+                                        <p className="text-brand-navy font-medium leading-relaxed italic mb-6 bg-white/80 backdrop-blur-sm p-3 rounded-lg border border-brand-terracotta/20 text-sm shadow-inner">
+                                            "O nosso Hino não foi escrito por poetas... nasceu aqui mesmo, depois de uma <span className="text-brand-terracotta font-black">BUBEDEIRA</span> histórica! Verdade!"
+                                        </p>
+                                        <Link
+                                            href="/hino"
+                                            className="text-white bg-brand-terracotta px-4 py-3 rounded-xl font-bold text-xs uppercase tracking-wider mt-auto inline-block text-center hover:bg-brand-navy transition-all shadow-lg hover:shadow-brand-terracotta/40 transform hover:-translate-y-1"
+                                        >
+                                            🎶 Ouvir a "Obra de Arte"
+                                        </Link>
+                                    </motion.div>
+                                )}
+                            </AnimatePresence>
+                        </div>
                     </motion.div>
                 </motion.div>
             </div>

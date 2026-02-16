@@ -3,13 +3,15 @@ import "../globals.css";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import WhatsAppButton from "@/components/WhatsAppButton";
+// import WhatsAppButton from "@/components/WhatsAppButton"; // Se usares, carrega dinâmico
 
 // 1. IMPORTS DO NEXT-INTL E METADATA
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import type { Metadata } from "next";
 import CookieBanner from "@/components/CookieBanner";
+// 2. IMPORTAR COMPONENTE SCRIPT (Para Analytics sem bloquear)
+import Script from 'next/script';
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -21,7 +23,6 @@ const geistMono = Geist_Mono({
     subsets: ["latin"],
 });
 
-// 2. FUNÇÃO DINÂMICA DE METADATA (SEO)
 export async function generateMetadata({
                                            params
                                        }: {
@@ -45,7 +46,7 @@ export async function generateMetadata({
             siteName: "Clube Padel Caldas",
             images: [
                 {
-                    url: "/og-image.jpg", // Certifica-te que esta imagem existe na pasta /public
+                    url: "/og-image.jpg",
                     width: 1200,
                     height: 630,
                     alt: "Clube Padel Caldas",
@@ -57,7 +58,6 @@ export async function generateMetadata({
     };
 }
 
-// 3. LAYOUT PRINCIPAL
 export default async function LocaleLayout({
                                                children,
                                                params
@@ -75,12 +75,35 @@ export default async function LocaleLayout({
         >
         <NextIntlClientProvider messages={messages}>
             <Navbar />
+
             <main className="flex-grow">
                 {children}
             </main>
+
             <Footer />
+
+            {/* O CookieBanner já é Client Component, o que é bom.
+                        Certifica-te que ele só ativa scripts pesados DEPOIS de aceitar. */}
             <CookieBanner />
+
             {/* <WhatsAppButton /> */}
+
+            {/* --- ZONA DE SCRIPTS DE PERFORMANCE --- */}
+            {/* Se fores adicionar Google Analytics, usa SEMPRE esta estratégia: */}
+            {/* <Script
+                        src="https://www.googletagmanager.com/gtag/js?id=G-SEU-ID-AQUI"
+                        strategy="lazyOnload" // <--- O SEGREDO DO TBT BAIXO
+                    />
+                    <Script id="google-analytics" strategy="lazyOnload">
+                        {`
+                          window.dataLayer = window.dataLayer || [];
+                          function gtag(){dataLayer.push(arguments);}
+                          gtag('js', new Date());
+                          gtag('config', 'G-SEU-ID-AQUI');
+                        `}
+                    </Script>
+                    */}
+
         </NextIntlClientProvider>
         </body>
         </html>

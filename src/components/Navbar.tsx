@@ -8,8 +8,6 @@ import Image from 'next/image';
 import logoImg from '@/assets/CPC_LogoVector_RGB_1024x724.png';
 import LanguageSwitcher from './LanguageSwitcher';
 
-export const runtime = 'edge';
-
 export default function Navbar() {
     const [scrolled, setScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,101 +15,96 @@ export default function Navbar() {
     const t = useTranslations('Navbar');
     const pathname = usePathname();
 
-    const isHomepage = pathname === '/pt' || pathname === '/en' || pathname === '/';
+    const isHomepage = pathname === '/' || pathname === '/pt' || pathname === '/en';
 
     useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 50);
-        window.addEventListener('scroll', handleScroll);
+        const handleScroll = () => {
+            const isScrolled = window.scrollY > 20;
+            if (isScrolled !== scrolled) setScrolled(isScrolled);
+        };
+        window.addEventListener('scroll', handleScroll, { passive: true });
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [scrolled]);
 
-    const isTransparent = isHomepage && !scrolled;
+    useEffect(() => {
+        if (mobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }, [mobileMenuOpen]);
+
+    const isTransparent = isHomepage && !scrolled && !mobileMenuOpen;
     const navClasses = isTransparent ? 'bg-transparent py-4 border-b border-white/10' : 'bg-white py-2 shadow-md';
     const textClasses = isTransparent ? 'text-white hover:text-brand-terracotta' : 'text-brand-navy hover:text-brand-terracotta';
     const logoClasses = isTransparent ? 'brightness-0 invert' : '';
 
     return (
-        <nav className={`fixed top-0 w-full z-50 transition-all duration-500 ${navClasses}`}>
-            {/* USO DE GRID COM LÓGICA DE PRIORIDADE:
-               - Colunas flexíveis para evitar colisões no centro.
-            */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-[auto_1fr_auto] md:grid-cols-3 items-center h-20">
+        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${navClasses}`}>
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="flex justify-between items-center h-16 md:h-20">
 
-                {/* COLUNA 1: LOGO */}
-                <div className="flex justify-start overflow-hidden">
-                    <Link href="/" className="flex items-center gap-2 hover:opacity-90 transition-opacity">
-                        <div className={`relative w-12 h-8 md:w-20 lg:w-24 md:h-16 flex-shrink-0 transition-all ${logoClasses}`}>
-                            <Image src={logoImg} alt="Logo" fill className="object-contain" priority />
-                        </div>
-                        {/* Escondemos o texto 'CLUBE PADEL CALDAS' mais cedo (lg:block) para salvar a navbar */}
-                        <div className={`hidden lg:block font-bold text-lg xl:text-xl tracking-wider leading-tight transition-colors ${textClasses}`}>
-                            {t('brandPrefix')} <span className={isTransparent ? 'text-white' : 'text-brand-terracotta'}>{t('brandSuffix')}</span>
-                        </div>
-                    </Link>
-                </div>
+                    {/* LOGO */}
+                    <div className="flex-shrink-0 z-50">
+                        <Link href="/" className="flex items-center gap-2 group" onClick={() => setMobileMenuOpen(false)}>
+                            <Image
+                                src={logoImg}
+                                alt="Clube Padel Caldas"
+                                width={60}
+                                height={42}
+                                className={`w-10 h-auto md:w-20 transition-all duration-300 object-contain ${logoClasses}`}
+                                priority
+                                sizes="(max-width: 768px) 40px, 96px"
+                            />
+                            <div className={`hidden lg:block font-bold text-lg xl:text-xl tracking-wider leading-tight transition-colors ${textClasses}`}>
+                                {t('brandPrefix')} <span className={isTransparent ? 'text-white' : 'text-brand-terracotta'}>{t('brandSuffix')}</span>
+                            </div>
+                        </Link>
+                    </div>
 
-                {/* COLUNA 2: MENU CENTRAL (Desktop) */}
-                <div className={`hidden md:flex justify-center items-center gap-4 lg:gap-8 text-[13px] lg:text-sm font-bold tracking-widest uppercase transition-colors`}>
+                    {/* DESKTOP NAV */}
+                    <div className="hidden md:flex items-center gap-8">
+                        <Link href="/#servicos" className={`text-sm font-bold uppercase tracking-widest transition-colors ${textClasses}`}>
+                            {t('links.services')}
+                        </Link>
+                        <Link href="/#precos" className={`text-sm font-bold uppercase tracking-widest transition-colors ${textClasses}`}>
+                            {t('links.prices')}
+                        </Link>
+                        <Link href="/#clube" className={`text-sm font-bold uppercase tracking-widest transition-colors ${textClasses}`}>
+                            {t('links.club')}
+                        </Link>
+                        <Link href="/contactos" className={`text-sm font-bold uppercase tracking-widest transition-colors ${textClasses}`}>
+                            {t('links.contacts')}
+                        </Link>
+                    </div>
 
-                    {/* Link: Serviços */}
-                    <Link href="/#servicos" className={`transition-colors duration-300 hover:text-brand-terracotta whitespace-nowrap ${textClasses}`}>
-                        {t('links.services')}
-                    </Link>
-
-                    {/* Link: Preços */}
-                    <Link href="/#precos" className={`transition-colors duration-300 hover:text-brand-terracotta whitespace-nowrap ${textClasses}`}>
-                        {t('links.prices')}
-                    </Link>
-
-                    {/* Link: Clube */}
-                    <Link href="/#clube" className={`transition-colors duration-300 hover:text-brand-terracotta whitespace-nowrap ${textClasses}`}>
-                        {t('links.club')}
-                    </Link>
-
-                    {/* Link: Contactos */}
-                    <Link href="/contactos" className={`transition-colors duration-300 hover:text-brand-terracotta whitespace-nowrap ${textClasses}`}>
-                        {t('links.contacts')}
-                    </Link>
-
-                </div>
-
-                {/* COLUNA 3: CONTROLES (Switcher + CTA + Toggle) */}
-                <div className="flex justify-end items-center gap-2 sm:gap-4">
-                    <div className="flex items-center">
+                    {/* ACTIONS */}
+                    <div className="flex items-center gap-4 z-50">
                         <LanguageSwitcher isTransparent={isTransparent} />
-                    </div>
-
-                    <div className="hidden md:block">
-                        <a
-                            href="https://go.tieplayer.com/link/ClubePadeldasCaldas"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className={`px-4 py-2.5 rounded-full font-bold text-[12px] lg:text-sm tracking-wider transition-all border-2 shadow-lg transform hover:scale-105 whitespace-nowrap
-                                ${isTransparent
-                                ? 'bg-white text-brand-navy border-white hover:bg-brand-terracotta hover:border-brand-terracotta hover:text-white'
-                                : 'bg-brand-terracotta text-white border-brand-terracotta hover:bg-brand-navy hover:border-brand-navy'}`}
+                        <button
+                            className={`md:hidden p-2 transition-colors ${mobileMenuOpen ? 'text-brand-navy' : textClasses}`}
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                         >
-                            {t('cta')}
-                        </a>
+                            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+                        </button>
                     </div>
-
-                    <button
-                        className={`md:hidden p-1 transition-colors ${mobileMenuOpen ? 'text-brand-navy' : textClasses}`}
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    >
-                        {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-                    </button>
                 </div>
             </div>
 
-            {/* MENU MOBILE (Inalterado) */}
+            {/* MOBILE MENU */}
             {mobileMenuOpen && (
-                <div className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center gap-8 text-brand-navy text-2xl font-bold">
+                <div className="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center gap-10 text-brand-navy text-2xl font-bold">
                     <Link href="/#servicos" onClick={() => setMobileMenuOpen(false)}>{t('links.services')}</Link>
                     <Link href="/#precos" onClick={() => setMobileMenuOpen(false)}>{t('links.prices')}</Link>
-                    <Link href="/#clube" onClick={() => setMobileMenuOpen(false)}>{t('links.club')}</Link>
                     <Link href="/contactos" onClick={() => setMobileMenuOpen(false)}>{t('links.contacts')}</Link>
-                    <a href="https://go.tieplayer.com/link/ClubePadeldasCaldas" target="_blank" onClick={() => setMobileMenuOpen(false)} className="bg-brand-terracotta text-white px-10 py-3 rounded-full">{t('cta')}</a>
+                    <a
+                        href="https://go.tieplayer.com/link/ClubePadeldasCaldas"
+                        target="_blank"
+                        className="bg-brand-terracotta text-white px-10 py-4 rounded-xl font-bold shadow-xl"
+                        onClick={() => setMobileMenuOpen(false)}
+                    >
+                        {t('cta')}
+                    </a>
                 </div>
             )}
         </nav>

@@ -1,20 +1,31 @@
 'use client';
 
-import Hero from '@/components/Hero';
-import FeaturesGrid from '@/components/FeaturesGrid';
-import SplitSection from '@/components/SplitSection';
-import StatsBanner from '@/components/StatsBanner';
-import InteractivePricing from '@/components/InteractivePricing';
-import Testimonials from "@/components/Testimonials";
-import Partners from '@/components/Partners';
-import CTA from '@/components/CTA';
-// 1. Importar o hook
+import dynamic from 'next/dynamic';
 import { useTranslations } from 'next-intl';
 
-export const runtime = 'edge';
+// 1. COMPONENTES CRÍTICOS (LCP)
+// Estes mantêm-se normais porque o utilizador vê-os assim que entra.
+import Hero from '@/components/Hero';
+import FeaturesGrid from '@/components/FeaturesGrid';
+// Nota: O FeaturesGrid tem Framer Motion, é pesado, mas como está no topo,
+// tem de carregar. Vamos otimizá-lo no Passo 2.
+
+// 2. COMPONENTES DIFERIDOS (NO-SSR)
+// Adicionamos { ssr: false } para remover o peso de hidratação inicial.
+// O browser agora ignora o JS destes componentes nos primeiros segundos críticos.
+
+const InteractivePricing = dynamic(() => import('@/components/InteractivePricing'), {
+    ssr: false,
+    loading: () => <div className="h-96 bg-gray-50 animate-pulse" /> // Placeholder visual
+});
+
+const SplitSection = dynamic(() => import('@/components/SplitSection'), { ssr: false });
+const StatsBanner = dynamic(() => import('@/components/StatsBanner'), { ssr: false });
+const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: false });
+const Partners = dynamic(() => import('@/components/Partners'), { ssr: false });
+const CTA = dynamic(() => import('@/components/CTA'), { ssr: false });
 
 export default function Home() {
-    // 2. Inicializar a tradução
     const t = useTranslations('Homepage');
 
     return (

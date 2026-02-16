@@ -1,24 +1,19 @@
 'use client';
 
-// 1. MUDAR O IMPORT: Usar o Link do nosso ficheiro de navegação
 import { Link } from '@/navigation';
 import { ArrowRight } from 'lucide-react';
 import Image from "next/image";
-import heroImg from "../assets/hero.webp";
-// 2. IMPORTAR O HOOK
+import hero from "../assets/hero.webp";
 import { useTranslations } from 'next-intl';
 
 export default function Hero() {
-    // 3. INICIALIZAR AS TRADUÇÕES (Secção 'Hero')
     const t = useTranslations('Hero');
 
-    // Função para realizar o scroll suave com duração personalizada
     const smoothScrollTo = (targetId: string, duration: number) => {
         const target = document.getElementById(targetId);
         if (!target) return;
 
         const startPosition = window.scrollY;
-        // Subtraímos 100px para compensar a altura da Navbar fixa
         const targetPosition = target.getBoundingClientRect().top + window.scrollY - 100;
         const distance = targetPosition - startPosition;
         let startTime: number | null = null;
@@ -26,16 +21,11 @@ export default function Hero() {
         function animation(currentTime: number) {
             if (startTime === null) startTime = currentTime;
             const timeElapsed = currentTime - startTime;
-
-            // Função matemática (Easing) para o movimento não ser robótico
             const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
-
             window.scrollTo(0, run);
-
             if (timeElapsed < duration) requestAnimationFrame(animation);
         }
 
-        // Função de aceleração/desaceleração suave
         function easeInOutQuad(t: number, b: number, c: number, d: number) {
             t /= d / 2;
             if (t < 1) return c / 2 * t * t + b;
@@ -51,26 +41,30 @@ export default function Hero() {
             {/* Imagem de Fundo */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src={heroImg}
-                    alt="hero image"
-                    fill
+                    src={hero}
+                    alt="Hero image"
                     className="object-cover"
-                    priority
+                    // 1. Dizemos que em telemóvel ocupa o ecra todo
+                    sizes="100vw"
+                    // 2. Prioridade máxima (Obrigatório para LCP)
+                    priority={true}
+                    loading="eager"
+                    // 3. AGRESSIVO: Reduzir qualidade para 50.
+                    // O overlay escuro esconde as imperfeições e o ficheiro fica metade do tamanho.
+                    quality={50}
+                    placeholder="blur"
+                    fill
                 />
-
-                {/* Overlay com Gradiente */}
+                {/* O teu overlay já ajuda a disfarçar qualquer perda de qualidade */}
                 <div className="absolute inset-0 bg-gradient-to-b from-brand-navy/40 via-brand-navy/60 to-brand-navy/90 mix-blend-multiply"></div>
             </div>
 
             <div className="relative z-10 text-center text-white px-4 max-w-5xl">
                 <h2 className="text-brand-terracotta font-bold tracking-[0.3em] text-sm md:text-base mb-6 uppercase animate-fade-in-up">
-                    {/* Texto Traduzido: "Desde 2022" */}
                     {t('subtitle')}
                 </h2>
                 <h1 className="text-5xl md:text-8xl font-black mb-8 leading-tight uppercase drop-shadow-lg">
-                    {/* Texto Traduzido: "O Padel nas" */}
                     {t('title')} <br />
-                    {/* Texto Traduzido: "Caldas da Rainha" */}
                     <span className="text-brand-terracotta">{t('titleHighlight')}</span>
                 </h1>
 
@@ -79,7 +73,6 @@ export default function Hero() {
                         href="#clube"
                         className="bg-white text-brand-navy px-10 py-4 rounded-full font-bold tracking-widest hover:bg-brand-terracotta hover:text-white transition-all shadow-xl"
                     >
-                        {/* Texto Traduzido: "O CLUBE" */}
                         {t('buttons.club')}
                     </Link>
                     <a
@@ -88,13 +81,11 @@ export default function Hero() {
                         rel="noopener noreferrer"
                         className="bg-brand-terracotta text-white px-10 py-4 rounded-full font-bold tracking-widest hover:bg-brand-navy border-2 border-brand-terracotta hover:border-brand-navy transition-all shadow-xl"
                     >
-                        {/* Texto Traduzido: "RESERVAR AGORA" */}
                         {t('buttons.book')}
                     </a>
                 </div>
             </div>
 
-            {/* Seta com Scroll Lento Personalizado */}
             <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce z-20">
                 <button
                     onClick={(e) => {

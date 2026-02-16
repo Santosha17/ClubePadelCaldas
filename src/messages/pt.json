@@ -406,5 +406,12 @@
         "content": "As reservas de campos são efetuadas através da plataforma TiePlayer. O cancelamento sem custos deve ser feito com uma antecedência mínima de 24 horas."
       }
     }
+  },
+  "Cookies": {
+    "title": "Nós usamos cookies 🍪",
+    "description": "Utilizamos cookies para melhorar a tua experiência e analisar o tráfego do site. Ao continuar, concordas com a nossa",
+    "link": "Política de Privacidade",
+    "accept": "Aceitar Tudo",
+    "decline": "Recusar"
   }
 }

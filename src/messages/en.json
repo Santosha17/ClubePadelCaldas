@@ -406,5 +406,12 @@
         "content": "Court bookings are made through the TiePlayer platform. Cancellation without costs must be made at least 24 hours in advance."
       }
     }
+  },
+  "Cookies": {
+    "title": "We use cookies 🍪",
+    "description": "We use cookies to improve your experience and analyze site traffic. By continuing, you agree to our",
+    "link": "Privacy Policy",
+    "accept": "Accept All",
+    "decline": "Decline"
   }
 }

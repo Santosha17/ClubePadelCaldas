@@ -9,6 +9,7 @@ import WhatsAppButton from "@/components/WhatsAppButton";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import type { Metadata } from "next";
+import CookieBanner from "@/components/CookieBanner";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -78,6 +79,7 @@ export default async function LocaleLayout({
                 {children}
             </main>
             <Footer />
+            <CookieBanner />
             {/* <WhatsAppButton /> */}
         </NextIntlClientProvider>
         </body>

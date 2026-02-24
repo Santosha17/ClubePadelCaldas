@@ -3,7 +3,6 @@
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
-// Importa as imagens (mantive os caminhos originais)
 import akiDelMar from '../assets/partners/aki_del_mar_mariscos.png';
 import autoJulio from '../assets/partners/auto_julio_grupo.png';
 import digitalPerspective from '../assets/partners/digital_perspective.png';

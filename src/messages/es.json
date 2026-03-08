@@ -1,0 +1,417 @@
+{
+  "Metadata": {
+    "title": "Club Padel Caldas - ¿Vamos a jugar?",
+    "description": "¡El Primer Club de Pádel de Caldas da Rainha!"
+  },
+  "Navbar": {
+    "brandPrefix": "CLUB PADEL",
+    "brandSuffix": "CALDAS",
+    "links": {
+      "services": "Servicios",
+      "prices": "Precios",
+      "club": "El Club",
+      "contacts": "Contactos"
+    },
+    "cta": "RESERVAR"
+  },
+  "Homepage": {
+    "pricingSection": {
+      "label": "Tarifas",
+      "title": "Calcula tu plan"
+    }
+  },
+  "Hero": {
+    "subtitle": "DESDE 2022",
+    "title": "El Pádel en",
+    "titleHighlight": "Caldas da Rainha",
+    "buttons": {
+      "club": "EL CLUB",
+      "book": "RESERVAR AHORA"
+    },
+    "scrollAria": "Ver servicios"
+  },
+  "Pricing": {
+    "tabs": {
+      "adults": "Adultos",
+      "kids": "Niños",
+      "advanced": "Avanzado",
+      "rental": "Alquiler"
+    },
+    "adults": {
+      "title": "Clases Adultos",
+      "paxLabel": "Número de Personas (Pax)",
+      "freqLabel": "Frecuencia",
+      "freqOptions": {
+        "oneWeek": "1x / Semana (Mensual)",
+        "twoWeek": "2x / Semana (Mensual)",
+        "single": "Clase Suelta",
+        "pack5": "Bono 5 Clases"
+      }
+    },
+    "kids": {
+      "title": "CPC Kids",
+      "paxLabel": "Número de Niños",
+      "freqLabel": "Frecuencia",
+      "freqOptions": {
+        "oneWeek": "1x / Semana",
+        "twoWeek": "2x / Semana"
+      }
+    },
+    "advanced": {
+      "title": "Pádel Next Level",
+      "classSizeLabel": "Tamaño del Grupo",
+      "people": "Personas",
+      "freqLabel": "Frecuencia",
+      "freqOptions": {
+        "oneWeek": "1x / Semana",
+        "twoWeek": "2x / Semana",
+        "threeWeek": "3x / Semana",
+        "single": "Clase Suelta"
+      }
+    },
+    "rental": {
+      "title": "Alquiler de Pistas",
+      "durationLabel": "Duración",
+      "min": "Min",
+      "timeLabel": "Horario",
+      "timeOptions": {
+        "off": "Valle (08h-18h)",
+        "peak": "Punta (18h-24h / FDS)"
+      },
+      "typeLabel": "Tipo",
+      "typeOptions": {
+        "court": "Por Pista",
+        "pax": "Por Persona"
+      }
+    },
+    "result": {
+      "estimated": "Valor Estimado",
+      "perReservation": "por reserva",
+      "total": "Total",
+      "perClass": "por clase",
+      "perMonthPerson": "/ mes por persona",
+      "features": {
+        "coaches": "Entrenadores Certificados",
+        "equipment": "Equipamiento incluido (si es necesario)",
+        "led": "Iluminación LED"
+      }
+    },
+    "cta": {
+      "book": "RESERVAR AHORA",
+      "subscribe": "INSCRIBIRSE"
+    }
+  },
+  "Partners": {
+    "title": "Patrocinadores Oficiales",
+    "altPrefix": "Patrocinador"
+  },
+  "About": {
+    "label": "Sobre Nosotros",
+    "title": "El primer club de Caldas da Rainha.",
+    "description": "Ubicado en la Zona Industrial, el Club Padel Caldas ofrece las mejores condiciones para la práctica de la modalidad. Con 5 pistas indoor y 1 cubierta de última generación con cristal panorámico y césped WPT. La mejor experiencia de juego garantizada.",
+    "imageAlt": "Interior del Club Padel Caldas",
+    "features": {
+      "parking": "Aparcamiento Privado",
+      "courts": "Pistas Premium",
+      "classes": "Clases para todos los niveles",
+      "tournaments": "Organización de Torneos sociales, ligas y clinics",
+      "community": "Comunidad Activa"
+    },
+    "cta": "VISITAR EL CLUB"
+  },
+  "Services": {
+    "label": "Servicios",
+    "title": "Todo para tu juego",
+    "cards": {
+      "rent": {
+        "title": "Alquiler de Pistas",
+        "description": "Reserva fácilmente a través de Tieplayer. Tenemos 6 pistas disponibles con superficie de alta calidad e iluminación LED.",
+        "cta": "Reservar Ahora"
+      },
+      "academy": {
+        "title": "Academia CPC",
+        "description": "¿Quieres evolucionar? Tenemos entrenadores certificados para clases individuales, de grupo o clinics de perfeccionamiento.",
+        "cta": "Ver Planes"
+      },
+      "bar": {
+        "title": "Bar y Tienda",
+        "description": "Material técnico de las mejores marcas y un espacio lounge para relajarse y socializar después de los partidos.",
+        "cta": "Visitar"
+      }
+    }
+  },
+  "Stats": {
+    "courts": {
+      "value": "6",
+      "label": "Pistas (5+1)"
+    },
+    "lockerRooms": {
+      "value": "M/F",
+      "label": "Vestuarios"
+    },
+    "academy": {
+      "value": "CPC",
+      "label": "Academia"
+    },
+    "bar": {
+      "value": "Bar",
+      "label": "Zona Social"
+    }
+  },
+  "Testimonials": {
+    "title": "La voz de nuestros atletas",
+    "subtitle": "La comunidad del Club Padel Caldas no para de crecer. Mira lo que dicen de nosotros.",
+    "googleLink": "Ver todas las reseñas en Google",
+    "reviews": [
+      {
+        "name": "Marcelo Pasco",
+        "role": "Jugador Social",
+        "content": "Excelente infraestructura para la práctica del pádel, pistas en excelentes condiciones de uso. Ambiente familiar y agradable, se puede socializar y ver buenos partidos de pádel. Equipo técnico 5 estrellas, se puede tomar una bebida y tienen los mejores sándwiches de la región y alrededores."
+      },
+      {
+        "name": "Ana Martins",
+        "role": "Alumna",
+        "content": "Empecé a tomar clases hace 3 meses y la evolución es notoria. Los entrenadores son súper atentos y el ambiente es muy familiar."
+      },
+      {
+        "name": "Pedro Costa",
+        "role": "Jugador Social",
+        "content": "Pistas de primer nivel y el bar tiene una vista fantástica a los partidos. El mejor lugar para el post-partido con los amigos."
+      }
+    ]
+  },
+  "FAQ": {
+    "label": "¿Dudas?",
+    "title": "Preguntas Frecuentes",
+    "questions": [
+      {
+        "q": "¿Cómo hago para reservar una pista?",
+        "a": "La forma más rápida es a través de nuestra página en TiePlayer. Puedes ver la disponibilidad en tiempo real y reservar al instante. También puedes llamar o enviar un WhatsApp si lo prefieres."
+      },
+      {
+        "q": "¿Es necesario ser socio para jugar?",
+        "a": "¡No! El Club Padel Caldas está abierto a todos. Puedes alquilar pistas o tomar clases sin ser socio. Sin embargo, hacerte socio te da acceso a precios reducidos y prioridad en las reservas."
+      },
+      {
+        "q": "¿Prestan palas y bolas?",
+        "a": "Sí. Si estás empezando y no tienes material, puedes alquilar palas en nuestra recepción por un valor simbólico. También vendemos bolas y otros accesorios en nuestra tienda."
+      },
+      {
+        "q": "¿Tienen clases para principiantes?",
+        "a": "¡Claro! Nuestra Academia tiene grupos para todos los niveles, desde quienes nunca han cogido una pala hasta la competición. Puedes reservar una clase de prueba para que evaluemos tu nivel."
+      },
+      {
+        "q": "¿Tienen aparcamiento y vestuarios?",
+        "a": "Sí, tenemos aparcamiento privado gratuito en la misma puerta del club. También disponemos de vestuarios masculinos y femeninos completos con duchas."
+      },
+      {
+        "q": "¿Cuál es la política de cancelación?",
+        "a": "Puedes cancelar tu reserva sin coste hasta 24 horas antes de la hora programada. Las cancelaciones con menos tiempo de antelación pueden estar sujetas al pago del valor de la pista."
+      }
+    ]
+  },
+  "CTA": {
+    "title": "¿Vamos a jugar?",
+    "description": "Ya seas principiante o profesional, el Club Padel Caldas es tu casa. Únete a nosotros hoy mismo.",
+    "buttons": {
+      "book": "Reservar Pista Ahora",
+      "contact": "Habla con Nosotros"
+    }
+  },
+  "Footer": {
+    "description": "El club de referencia en la región Oeste. Ven a jugar, socializar y evolucionar tu pádel en un ambiente fantástico.",
+    "sections": {
+      "contacts": "Contactos",
+      "social": "Social"
+    },
+    "copyright": "Club Padel Caldas. Todos los derechos reservados.",
+    "legal": {
+      "anthem": "Himno del Club",
+      "faq": "FAQ",
+      "terms": "Términos y Condiciones",
+      "privacy": "Política de Privacidad"
+    }
+  },
+  "WhatsApp": {
+    "label": "¡Reserva ya!",
+    "ariaLabel": "Contactar por WhatsApp"
+  },
+  "Academy": {
+    "hero": {
+      "label": "CPC Academy",
+      "title": "Escuela de Pádel",
+      "subtitle": "Evoluciona tu juego con los mejores profesionales de la región Oeste. Clases para todas las edades y niveles."
+    },
+    "benefits": {
+      "methodology": {
+        "title": "Metodología Comprobada",
+        "description": "Planes de entrenamiento adaptados a tu nivel, enfocados en la técnica, táctica y posicionamiento en pista para una evolución rápida."
+      },
+      "community": {
+        "title": "Comunidad Vibrante",
+        "description": "Entrar en la CPC Academy es formar parte de una familia. Organización de partidos, torneos internos y eventos sociales regulares."
+      },
+      "everyone": {
+        "title": "Para Todos",
+        "description": "Desde los primeros pasos en las clases Kids hasta la alta competición. Tenemos el grupo adecuado para ti, independientemente de la edad."
+      }
+    },
+    "form": {
+      "sidebar": {
+        "title": "¡Únete a nosotros!",
+        "subtitle": "Rellena el formulario para programar tu evaluación de nivel o primera clase.",
+        "item1": "Evaluación Gratuita",
+        "item2": "Horarios Flexibles",
+        "item3": "Material Incluido",
+        "help": "¿Dudas?"
+      },
+      "fields": {
+        "firstName": "Nombre",
+        "lastName": "Apellidos",
+        "phone": "Móvil",
+        "email": "Email",
+        "birthDate": "Fecha de Nacimiento",
+        "level": "Tu Nivel",
+        "availability": "Disponibilidad Habitual",
+        "terms": "Declaro que he leído y acepto los {link} del reglamento del CPC Academy 25/26.",
+        "termsLink": "Términos y Condiciones"
+      },
+      "placeholders": {
+        "firstName": "Ej: Juan",
+        "lastName": "Ej: García",
+        "phone": "912 345 678",
+        "email": "juan@ejemplo.com",
+        "select": "Selecciona una opción"
+      },
+      "levels": {
+        "none": "Nunca he jugado / Menos de 10 veces",
+        "l5": "Nivel 5 (Iniciación)",
+        "l4": "Nivel 4 (Intermedio Bajo)",
+        "l3": "Nivel 3 (Intermedio)",
+        "l2": "Nivel 2 (Avanzado)",
+        "l1": "Nivel 1 (Competición)",
+        "kids": "Kids (Niños)"
+      },
+      "submit": "Enviar Inscripción",
+      "alertTerms": "Por favor, acepta los Términos y Condiciones para continuar."
+    },
+    "team": {
+      "title": "Nuestro Equipo",
+      "subtitle": "Conoce a los entrenadores disponibles que te ayudarán a llegar al siguiente nivel.",
+      "levelLabel": "Nivel"
+    }
+  },
+  "Contacts": {
+    "hero": {
+      "label": "Habla con Nosotros",
+      "title": "Te estamos esperando",
+      "subtitle": "¿Tienes dudas sobre clases, alquiler de pistas o torneos? Ponte en contacto con nuestro equipo."
+    },
+    "info": {
+      "title": "Información",
+      "phone": "Teléfono",
+      "phoneSub": "Llamada a red móvil nacional",
+      "email": "Email",
+      "address": "Dirección",
+      "followUs": "Síguenos"
+    },
+    "schedule": {
+      "title": "Horario",
+      "weekdays": "Lunes a Viernes",
+      "saturdays": "Sábados",
+      "sundays": "Domingos y Festivos"
+    },
+    "form": {
+      "title": "Envía un mensaje",
+      "subtitle": "Prometemos responder a la mayor brevedad.",
+      "fields": {
+        "name": "Nombre",
+        "email": "Email",
+        "subject": "Asunto",
+        "message": "Mensaje"
+      },
+      "placeholders": {
+        "name": "Tu nombre",
+        "email": "email@ejemplo.com",
+        "subject": "Ej: Reserva de Clase, Dudas...",
+        "message": "¿Cómo podemos ayudarte?"
+      },
+      "submit": "Enviar Mensaje",
+      "whatsappPrefix": "*Nuevo Contacto desde la Web* 🎾"
+    }
+  },
+  "Anthem": {
+    "hero": {
+      "label": "CULTURA",
+      "title": "Nuestro Himno",
+      "subtitle": "La voz y el alma del Club Padel Caldas. ¡Canta con nosotros!"
+    },
+    "lyrics": {
+      "strophe1": {
+        "line1": "Dame una dejada",
+        "line2": "De esas que mueren en la malla",
+        "line3": "Sácala por tres",
+        "line4": "Sácala por tres",
+        "line5": "Y reviéntame con ella"
+      },
+      "strophe2": {
+        "line1": "Y reviéntame con ella",
+        "line2": "Queremos que ganes por nosotros",
+        "line3": "Estaré aquí para ti",
+        "line4": "Estaré aquí para ti",
+        "line5": "Hasta que me quede sin voz"
+      },
+      "strophe3": {
+        "line1": "Club Padel de Caldas",
+        "line2": "Club de mi corazón",
+        "line3": "Dos Cero Dos Cero",
+        "line4": "Dos Cero Dos Cero",
+        "line5": "El año de fundación"
+      },
+      "outro": "Lo Lo Lo Lo"
+    }
+  },
+  "Privacy": {
+    "hero": {
+      "title": "Política de ",
+      "titleHighlight": "Privacidad",
+      "lastUpdate": "Última actualización:"
+    },
+    "sections": {
+      "collection": {
+        "title": "1. Recopilación de Datos",
+        "content": "El Club Padel Caldas respeta su privacidad. Recopilamos únicamente los datos estrictamente necesarios para la prestación de nuestros servicios de reserva y facturación...",
+        "placeholder": "[Aquí debes colocar el texto legal sobre el RGPD, cómo guardan contactos, si usan cámaras de videovigilancia en el club, etc.]"
+      },
+      "sharing": {
+        "title": "2. Intercambio de Información",
+        "content": "No compartimos sus datos personales con terceros, excepto cuando sea estrictamente necesario para el procesamiento de reservas (ej: TiePlayer) u obligaciones legales."
+      }
+    }
+  },
+  "Terms": {
+    "hero": {
+      "title": "Términos y ",
+      "titleHighlight": "Condiciones",
+      "lastUpdate": "Última actualización:"
+    },
+    "sections": {
+      "intro": {
+        "title": "1. Introducción",
+        "content": "Bienvenido al Club Padel Caldas. Al utilizar nuestros servicios, alquilar pistas o participar en nuestras clases, acepta los presentes términos y condiciones...",
+        "placeholder": "[Aquí debes colocar el texto legal proporcionado por el club sobre normas de uso, calzado obligatorio, etc.]"
+      },
+      "bookings": {
+        "title": "2. Reservas y Cancelaciones",
+        "content": "Las reservas de pistas se realizan a través de la plataforma TiePlayer. La cancelación sin coste debe hacerse con una antelación mínima de 24 horas."
+      }
+    }
+  },
+  "Cookies": {
+    "title": "Usamos cookies 🍪",
+    "description": "Utilizamos cookies para mejorar tu experiencia y analizar el tráfico del sitio web. Al continuar, aceptas nuestra",
+    "link": "Política de Privacidad",
+    "accept": "Aceptar Todo",
+    "decline": "Rechazar"
+  }
+}

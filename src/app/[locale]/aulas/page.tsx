@@ -1,14 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { Link } from "@/navigation";
-import { Check, User, Mail, Phone, Calendar, Trophy, Users, Heart } from "lucide-react";
+import { Check, User, Mail, Phone, Calendar, Trophy, Users, Heart, Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 export const runtime = 'edge';
 
-// --- DADOS DA EQUIPA ---
 const coaches = [
     { id: 1, name: "Bernardo Bastos", role: "Head Coach", level: "Nível 1", image_url: "" },
     { id: 2, name: "João Fiúza", role: "Coach", level: "Nível 2", image_url: "" },
@@ -31,6 +29,9 @@ export default function Aulas() {
         termsAccepted: false
     });
 
+    // Estados para gerir o feedback ao utilizador
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));
@@ -47,7 +48,7 @@ export default function Aulas() {
         });
     };
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
         if (!formData.termsAccepted) {
@@ -55,17 +56,42 @@ export default function Aulas() {
             return;
         }
 
-        const subject = `Nova Inscrição CPC Academy - ${formData.firstName} ${formData.lastName}`;
-        const body = `
-Nome: ${formData.firstName} ${formData.lastName}
-Telemóvel: ${formData.phone}
-Email: ${formData.email}
-Data de Nascimento: ${formData.birthDate}
-Nível: ${formData.level}
-Disponibilidade: ${formData.availability.join(", ")}
-        `;
+        setStatus('loading');
 
-        window.location.href = `mailto:geralcpcaldas@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        try {
+            // COLOCA AQUI O LINK DO TEU WEBHOOK (Make.com, Zapier ou Power Automate)
+            const WEBHOOK_URL = "https://hook.eu1.make.com/gu5n8cf2y2pf59s2ytlorjrlvnsf71c2";
+
+            const response = await fetch(WEBHOOK_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                // Preparamos os dados. O array de disponibilidade é convertido em texto separado por vírgulas
+                body: JSON.stringify({
+                    ...formData,
+                    availability: formData.availability.join(", ")
+                })
+            });
+
+            if (response.ok) {
+                setStatus('success');
+                // Limpa o formulário após sucesso
+                setFormData({
+                    firstName: "", lastName: "", phone: "", email: "",
+                    birthDate: "", level: "", availability: [], termsAccepted: false
+                });
+
+                // Oculta a mensagem de sucesso após 5 segundos
+                setTimeout(() => setStatus('idle'), 5000);
+            } else {
+                throw new Error("Erro na resposta do servidor");
+            }
+        } catch (error) {
+            console.error("Erro ao enviar formulário:", error);
+            setStatus('error');
+            setTimeout(() => setStatus('idle'), 5000);
+        }
     };
 
     return (
@@ -90,6 +116,7 @@ Disponibilidade: ${formData.availability.join(", ")}
 
                 {/* 2. INTRODUÇÃO ÀS AULAS */}
                 <div className="grid md:grid-cols-3 gap-8">
+                    {/* ... (mantém o teu código dos benefícios igual) ... */}
                     <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 flex flex-col items-center text-center">
                         <div className="w-16 h-16 bg-blue-50 text-brand-navy rounded-2xl flex items-center justify-center mb-6">
                             <Trophy size={32} />
@@ -133,6 +160,7 @@ Disponibilidade: ${formData.availability.join(", ")}
 
                     <div className="md:w-2/3 p-8 md:p-12">
                         <form onSubmit={handleSubmit} className="space-y-6">
+                            {/* ... (mantém todos os inputs iguais até ao botão de submissão) ... */}
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div>
                                     <label className="block text-sm font-bold text-gray-700 mb-2">{t('form.fields.firstName')}</label>
@@ -232,7 +260,6 @@ Disponibilidade: ${formData.availability.join(", ")}
                                         className="mt-1 w-5 h-5 text-brand-terracotta rounded border-gray-300"
                                     />
                                     <span className="text-sm text-gray-600">
-                                        {/* Exemplo de como usar link dentro de tradução estruturada */}
                                         {t.rich('form.fields.terms', {
                                             link: (chunks) => <Link href="/termos" className="text-brand-terracotta font-bold hover:underline" target="_blank">{t('form.fields.termsLink')}</Link>
                                         })}
@@ -240,8 +267,20 @@ Disponibilidade: ${formData.availability.join(", ")}
                                 </label>
                             </div>
 
-                            <button type="submit" className="w-full bg-brand-terracotta text-white font-bold py-4 rounded-xl shadow-lg transition-all">
-                                {t('form.submit')}
+                            {/* FEEDBACK VISUAL DO BOTÃO */}
+                            <button
+                                type="submit"
+                                disabled={status === 'loading'}
+                                className={`w-full text-white font-bold py-4 rounded-xl shadow-lg transition-all flex justify-center items-center gap-2
+                                    ${status === 'success' ? 'bg-green-600' : status === 'error' ? 'bg-red-600' : 'bg-brand-terracotta hover:bg-brand-navy'}
+                                    ${status === 'loading' ? 'opacity-80 cursor-not-allowed' : ''}
+                                `}
+                            >
+                                {status === 'loading' && <Loader2 className="animate-spin" size={20} />}
+                                {status === 'idle' && t('form.submit')}
+                                {status === 'loading' && "A enviar..."}
+                                {status === 'success' && "Inscrição enviada com sucesso!"}
+                                {status === 'error' && "Erro ao enviar. Tenta novamente."}
                             </button>
                         </form>
                     </div>

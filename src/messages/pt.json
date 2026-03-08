@@ -111,7 +111,7 @@
     "description": "Localizado na Zona Industrial, o Clube Padel Caldas oferece as melhores condições para a prática da modalidade. Com 5 campos indoor e 1 coberto de última geração com vidro panorâmico e relva WPT. A melhor experiência de jogo garantida.",
     "imageAlt": "Interior do Clube Padel Caldas",
     "features": {
-      "parking": "Estacionamento Privativo",
+      "parking": "Estacionamento Exterior Privativo",
       "courts": "Campos Premium",
       "classes": "Aulas para todos os níveis",
       "tournaments": "Organização de Torneios sociais, ligas e clínicas",
@@ -202,7 +202,7 @@
       },
       {
         "q": "Têm estacionamento e balneários?",
-        "a": "Sim, temos estacionamento privativo gratuito mesmo à porta do clube. Dispomos também de balneários masculinos e femininos completos com duches."
+        "a": "Sim, temos estacionamento exterior privativo gratuito mesmo à porta do clube. Dispomos também de balneários masculinos e femininos completos com duches."
       },
       {
         "q": "Qual é a política de cancelamento?",

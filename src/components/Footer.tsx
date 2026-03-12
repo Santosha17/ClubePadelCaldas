@@ -2,7 +2,7 @@
 
 // 1. MUDAR O IMPORT DO LINK
 import { Link } from '@/navigation';
-import { MapPin, Phone, Mail, Instagram, Facebook } from 'lucide-react';
+import {MapPin, Phone, Mail, Instagram, Facebook, Youtube} from 'lucide-react';
 // 2. IMPORTAR O HOOK
 import { useTranslations } from 'next-intl';
 
@@ -74,6 +74,14 @@ export default function Footer() {
                             className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-terracotta transition-all"
                         >
                             <Facebook size={24} />
+                        </a>
+                        <a
+                            href="https://www.youtube.com/@ClubePadeldasCaldas"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center hover:bg-brand-terracotta transition-all"
+                        >
+                            <Youtube size={24} />
                         </a>
                     </div>
                 </div>

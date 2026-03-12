@@ -20,7 +20,7 @@ export default function FAQ() {
     };
 
     return (
-        <section className="py-24 bg-gray-50 scroll-mt-20" id="faq">
+        <section className="pt-40 pb-24 bg-gray-50 scroll-mt-20" id="faq">
             <div className="container mx-auto px-4 max-w-4xl">
 
                 {/* Cabeçalho */}

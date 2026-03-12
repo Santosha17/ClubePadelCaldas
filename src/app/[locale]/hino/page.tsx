@@ -10,7 +10,7 @@ export default function Hino() {
     const t = useTranslations('Anthem');
 
     return (
-        <div className="bg-gray-50 pb-24">
+        <div className="bg-gray-50 pt-20 pb-24">
 
             {/* 1. HERO SECTION */}
             <div className="relative bg-brand-navy py-24 pb-32 overflow-hidden">

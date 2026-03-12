@@ -68,7 +68,7 @@ export default function Contactos() {
     return (
         <div className="bg-gray-50">
             {/* HERO SECTION */}
-            <div className="relative bg-brand-navy py-24 pb-32 overflow-hidden">
+            <div className="relative bg-brand-navy pt-40 pb-24 pb-32 overflow-hidden">
                 <div className="absolute inset-0 opacity-10 pattern-grid-lg text-white" />
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                     <span className="inline-block py-1 px-3 rounded-full bg-brand-navy border border-white/20 text-white text-xs font-bold tracking-wider uppercase mb-4">

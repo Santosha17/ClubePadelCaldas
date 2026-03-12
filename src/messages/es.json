@@ -285,11 +285,11 @@
       },
       "levels": {
         "none": "Nunca he jugado / Menos de 10 veces",
-        "l5": "Nivel 5 (Iniciación)",
-        "l4": "Nivel 4 (Intermedio Bajo)",
-        "l3": "Nivel 3 (Intermedio)",
-        "l2": "Nivel 2 (Avanzado)",
-        "l1": "Nivel 1 (Competición)",
+        "5": "Nivel 5 (Iniciación)",
+        "4": "Nivel 4 (Intermedio Bajo)",
+        "3": "Nivel 3 (Intermedio)",
+        "2": "Nivel 2 (Avanzado)",
+        "1": "Nivel 1 (Competición)",
         "kids": "Kids (Niños)"
       },
       "submit": "Enviar Inscripción",

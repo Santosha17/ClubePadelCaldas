@@ -285,11 +285,11 @@
       },
       "levels": {
         "none": "Never played / Less than 10 times",
-        "l5": "Level 5 (Beginner)",
-        "l4": "Level 4 (Low Intermediate)",
-        "l3": "Level 3 (Intermediate)",
-        "l2": "Level 2 (Advanced)",
-        "l1": "Level 1 (Competition)",
+        "5": "Level 5 (Beginner)",
+        "4": "Level 4 (Low Intermediate)",
+        "3": "Level 3 (Intermediate)",
+        "2": "Level 2 (Advanced)",
+        "1": "Level 1 (Competition)",
         "kids": "Kids (Children)"
       },
       "submit": "Submit Registration",

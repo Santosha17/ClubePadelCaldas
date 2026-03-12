@@ -229,11 +229,11 @@ export default function Aulas() {
                                     >
                                         <option value="" disabled>{t('form.placeholders.select')}</option>
                                         <option value="none">{t('form.levels.none')}</option>
-                                        <option value="l5">{t('form.levels.l5')}</option>
-                                        <option value="l4">{t('form.levels.l4')}</option>
-                                        <option value="l3">{t('form.levels.l3')}</option>
-                                        <option value="l2">{t('form.levels.l2')}</option>
-                                        <option value="l1">{t('form.levels.l1')}</option>
+                                        <option value="5">{t('form.levels.5')}</option>
+                                        <option value="4">{t('form.levels.4')}</option>
+                                        <option value="3">{t('form.levels.3')}</option>
+                                        <option value="2">{t('form.levels.2')}</option>
+                                        <option value="1">{t('form.levels.1')}</option>
                                         <option value="kids">{t('form.levels.kids')}</option>
                                     </select>
                                 </div>

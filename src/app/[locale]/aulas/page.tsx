@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Link } from "@/navigation";
 import { Check, User, Mail, Phone, Calendar, Trophy, Users, Heart, Loader2 } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { supabase } from "@/app/lib/supabaseClient";
 
 export const runtime = 'edge';
 
@@ -59,34 +60,35 @@ export default function Aulas() {
         setStatus('loading');
 
         try {
-            // COLOCA AQUI O LINK DO TEU WEBHOOK (Make.com, Zapier ou Power Automate)
-            const WEBHOOK_URL = "https://hook.eu1.make.com/gu5n8cf2y2pf59s2ytlorjrlvnsf71c2";
+            // GRAVAR DIRETAMENTE NO SUPABASE
+            const { error } = await supabase
+                .from('academy_registrations')
+                .insert([
+                    {
+                        first_name: formData.firstName,
+                        last_name: formData.lastName,
+                        phone: formData.phone,
+                        email: formData.email,
+                        birth_date: formData.birthDate,
+                        level: formData.level,
+                        availability: formData.availability.join(", ")
+                    }
+                ]);
 
-            const response = await fetch(WEBHOOK_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                // Preparamos os dados. O array de disponibilidade é convertido em texto separado por vírgulas
-                body: JSON.stringify({
-                    ...formData,
-                    availability: formData.availability.join(", ")
-                })
+            if (error) {
+                throw error;
+            }
+
+            setStatus('success');
+            // Limpa o formulário após sucesso
+            setFormData({
+                firstName: "", lastName: "", phone: "", email: "",
+                birthDate: "", level: "", availability: [], termsAccepted: false
             });
 
-            if (response.ok) {
-                setStatus('success');
-                // Limpa o formulário após sucesso
-                setFormData({
-                    firstName: "", lastName: "", phone: "", email: "",
-                    birthDate: "", level: "", availability: [], termsAccepted: false
-                });
+            // Oculta a mensagem de sucesso após 5 segundos
+            setTimeout(() => setStatus('idle'), 5000);
 
-                // Oculta a mensagem de sucesso após 5 segundos
-                setTimeout(() => setStatus('idle'), 5000);
-            } else {
-                throw new Error("Erro na resposta do servidor");
-            }
         } catch (error) {
             console.error("Erro ao enviar formulário:", error);
             setStatus('error');

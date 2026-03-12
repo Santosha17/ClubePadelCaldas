@@ -381,7 +381,7 @@
       "collection": {
         "title": "1. Recolha de Dados",
         "content": "O Clube Padel Caldas respeita a sua privacidade. Recolhemos apenas os dados estritamente necessários para a prestação dos nossos serviços de reserva e faturação...",
-        "placeholder": "[Aqui deves colocar o texto legal sobre RGPD, como guardam contactos, se usam câmaras de videovigilância no clube, etc.]"
+        "placeholder": ""
       },
       "sharing": {
         "title": "2. Partilha de Informação",
@@ -399,7 +399,7 @@
       "intro": {
         "title": "1. Introdução",
         "content": "Bem-vindo ao Clube Padel Caldas. Ao utilizar os nossos serviços, alugar campos ou participar nas nossas aulas, concorda com os presentes termos e condições...",
-        "placeholder": "[Aqui deves colocar o texto legal fornecido pelo clube sobre regras de utilização, calçado obrigatório, etc.]"
+        "placeholder": ""
       },
       "bookings": {
         "title": "2. Reservas e Cancelamentos",

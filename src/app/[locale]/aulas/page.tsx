@@ -118,7 +118,6 @@ export default function Aulas() {
 
                 {/* 2. INTRODUÇÃO ÀS AULAS */}
                 <div className="grid md:grid-cols-3 gap-8">
-                    {/* ... (mantém o teu código dos benefícios igual) ... */}
                     <div className="bg-white p-8 rounded-3xl shadow-lg border border-gray-100 flex flex-col items-center text-center">
                         <div className="w-16 h-16 bg-blue-50 text-brand-navy rounded-2xl flex items-center justify-center mb-6">
                             <Trophy size={32} />

@@ -1,17 +1,14 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Oswald } from "next/font/google"; // NOVO: Importamos a Oswald
 import "../globals.css";
 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 // import WhatsAppButton from "@/components/WhatsAppButton"; // Se usares, carrega dinâmico
 
-// 1. IMPORTS DO NEXT-INTL E METADATA
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import type { Metadata } from "next";
 import CookieBanner from "@/components/CookieBanner";
-// 2. IMPORTAR COMPONENTE SCRIPT (Para Analytics sem bloquear)
-import Script from 'next/script';
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -21,6 +18,13 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
     variable: "--font-geist-mono",
     subsets: ["latin"],
+});
+
+// NOVO: Configuramos a fonte para os títulos
+const oswald = Oswald({
+    variable: "--font-heading",
+    subsets: ["latin"],
+    weight: ["500", "700"],
 });
 
 export async function generateMetadata({
@@ -70,9 +74,10 @@ export default async function LocaleLayout({
 
     return (
         <html lang={locale} className="scroll-smooth">
-        <body
-            className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
-        >
+        <body className={`${geistSans.variable} ${geistMono.variable} ${oswald.variable} antialiased flex flex-col min-h-screen`}>
+
+
+        {/* Provedor de traduções colocado apenas UMA vez */}
         <NextIntlClientProvider messages={messages}>
             <Navbar />
 
@@ -82,27 +87,9 @@ export default async function LocaleLayout({
 
             <Footer />
 
-            {/* O CookieBanner já é Client Component, o que é bom.
-                        Certifica-te que ele só ativa scripts pesados DEPOIS de aceitar. */}
             <CookieBanner />
 
             {/* <WhatsAppButton /> */}
-
-            {/* --- ZONA DE SCRIPTS DE PERFORMANCE --- */}
-            {/* Se fores adicionar Google Analytics, usa SEMPRE esta estratégia: */}
-            {/* <Script
-                        src="https://www.googletagmanager.com/gtag/js?id=G-SEU-ID-AQUI"
-                        strategy="lazyOnload" // <--- O SEGREDO DO TBT BAIXO
-                    />
-                    <Script id="google-analytics" strategy="lazyOnload">
-                        {`
-                          window.dataLayer = window.dataLayer || [];
-                          function gtag(){dataLayer.push(arguments);}
-                          gtag('js', new Date());
-                          gtag('config', 'G-SEU-ID-AQUI');
-                        `}
-                    </Script>
-                    */}
 
         </NextIntlClientProvider>
         </body>

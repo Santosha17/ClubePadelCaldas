@@ -3,8 +3,6 @@
 import { Star, Quote } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 
-// Configuramos apenas os dados visuais (imagens e rating) aqui.
-// O texto (Nome, Cargo, Conteúdo) vem do ficheiro pt.json / en.json para permitir tradução.
 const testimonialsConfig = [
     {
         rating: 5,
@@ -21,21 +19,23 @@ const testimonialsConfig = [
 ];
 
 export default function Testimonials() {
-    // 1. Inicializar as traduções
     const t = useTranslations('Testimonials');
 
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
-            {/* Elementos decorativos de fundo */}
-            <div className="absolute top-0 left-0 w-64 h-64 bg-brand-navy/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-            <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-terracotta/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+        <section className="py-24 bg-brand-bg relative overflow-hidden">
+            {/* Elementos decorativos de fundo (Aumentada a intensidade e adicionada animação) */}
+            <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-brand-navy/5 rounded-full blur-[100px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
+            <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-brand-terracotta/10 rounded-full blur-[100px] translate-x-1/4 translate-y-1/4 animate-slow-zoom pointer-events-none"></div>
 
             <div className="container mx-auto px-6 relative z-10">
 
                 {/* Cabeçalho */}
-                <div className="text-center mb-16">
-                    <h2 className="text-4xl font-bold text-brand-navy mb-4">{t('title')}</h2>
-                    <p className="text-gray-500 max-w-2xl mx-auto">
+                <div className="text-center mb-20">
+                    {/* ADICIONADO: font-heading e uppercase */}
+                    <h2 className="font-heading text-4xl md:text-6xl font-black text-brand-navy mb-6 uppercase tracking-tight drop-shadow-sm">
+                        {t('title')}
+                    </h2>
+                    <p className="text-lg text-gray-600 max-w-2xl mx-auto font-medium">
                         {t('subtitle')}
                     </p>
                 </div>
@@ -45,27 +45,27 @@ export default function Testimonials() {
                     {testimonialsConfig.map((item, index) => (
                         <div
                             key={index}
-                            className="bg-gray-50 p-8 rounded-3xl relative hover:-translate-y-2 transition-transform duration-300 shadow-sm hover:shadow-lg border border-gray-100"
+                            // ADICIONADO: group para interatividade interna, fundo branco puro, sombras coloridas dinâmicas
+                            className="bg-white p-10 rounded-3xl relative hover:-translate-y-2 transition-all duration-500 shadow-lg shadow-brand-navy/5 hover:shadow-[0_20px_40px_-15px_rgba(232,119,56,0.2)] border border-gray-100 group"
                         >
-                            {/* Ícone de Aspas */}
-                            <Quote className="absolute top-8 right-8 text-brand-terracotta/20 w-10 h-10 rotate-180" />
+                            {/* Ícone de Aspas (Ganha cor no hover) */}
+                            <Quote className="absolute top-8 right-8 text-brand-terracotta/10 group-hover:text-brand-terracotta/30 w-12 h-12 rotate-180 transition-colors duration-500" />
 
-                            {/* Estrelas */}
-                            <div className="flex gap-1 mb-6">
+                            {/* Estrelas (Sombra amarela para brilho extra) */}
+                            <div className="flex gap-1 mb-8">
                                 {[...Array(item.rating)].map((_, i) => (
-                                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400" />
+                                    <Star key={i} className="w-5 h-5 fill-yellow-400 text-yellow-400 drop-shadow-[0_0_5px_rgba(250,204,21,0.5)]" />
                                 ))}
                             </div>
 
-                            {/* Texto (Traduzido dinamicamente pelo Index) */}
-                            {/* O next-intl permite aceder a arrays usando 'reviews.0.content', etc. */}
-                            <p className="text-gray-600 mb-8 leading-relaxed italic">
+                            {/* Texto da Review */}
+                            <p className="text-gray-600 mb-10 leading-relaxed italic text-lg relative z-10">
                                 "{t(`reviews.${index}.content`)}"
                             </p>
 
                             {/* Autor */}
-                            <div className="flex items-center gap-4 border-t border-gray-200 pt-6">
-                                <div className="w-12 h-12 rounded-full overflow-hidden bg-gray-200">
+                            <div className="flex items-center gap-4 border-t border-gray-100 pt-6 mt-auto">
+                                <div className="w-14 h-14 rounded-full overflow-hidden bg-brand-navy/5 border-2 border-transparent group-hover:border-brand-terracotta/50 transition-colors duration-300">
                                     <img
                                         src={item.image}
                                         alt={t(`reviews.${index}.name`)}
@@ -73,8 +73,12 @@ export default function Testimonials() {
                                     />
                                 </div>
                                 <div>
-                                    <h4 className="font-bold text-brand-navy">{t(`reviews.${index}.name`)}</h4>
-                                    <span className="text-xs text-brand-terracotta font-bold uppercase tracking-wider">
+                                    {/* ADICIONADO: font-heading no nome do autor */}
+                                    <h4 className="font-heading text-2xl font-bold text-brand-navy uppercase tracking-wide">
+                                        {t(`reviews.${index}.name`)}
+                                    </h4>
+                                    {/* ADICIONADO: font-heading na role do autor */}
+                                    <span className="font-heading text-sm text-brand-terracotta font-bold uppercase tracking-widest">
                                         {t(`reviews.${index}.role`)}
                                     </span>
                                 </div>
@@ -83,15 +87,16 @@ export default function Testimonials() {
                     ))}
                 </div>
 
-                {/* Botão Google Reviews */}
-                <div className="text-center mt-12">
+                {/* Botão Google Reviews (Transformado num botão Premium em vez de link de texto) */}
+                <div className="text-center mt-16">
                     <a
-                        href="https://www.google.com/search?q=Clube+Padel+Caldas+Cr%C3%ADticas" // Link simplificado
+                        href="https://www.google.com/search?q=Clube+Padel+Caldas+Cr%C3%ADticas"
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-2 text-brand-navy font-bold hover:text-brand-terracotta transition-colors border-b-2 border-brand-navy/10 hover:border-brand-terracotta pb-1"
+                        className="font-heading uppercase tracking-widest inline-flex items-center gap-3 bg-white px-8 py-4 rounded-full text-brand-navy font-bold hover:bg-brand-terracotta hover:text-white transition-all duration-300 shadow-lg hover:shadow-[0_0_20px_rgba(232,119,56,0.4)] hover:-translate-y-1 border border-gray-100 hover:border-transparent group"
                     >
-                        {t('googleLink')} <span aria-hidden="true">&rarr;</span>
+                        {t('googleLink')}
+                        <span aria-hidden="true" className="group-hover:translate-x-1 transition-transform">&rarr;</span>
                     </a>
                 </div>
 
